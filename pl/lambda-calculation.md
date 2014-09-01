@@ -177,4 +177,9 @@ two = (succ one)
 (assert (= (church->neg ((mult three) three)) -9))
 ~~~
 
-[完整示例代码](https://raw.githubusercontent.com/jameszhan/rhea/master/codes/clojure/calculation/lambda.clj)
+
+
+### 参考
+[Lambda演算之自然数](https://github.com/jameszhan/blogs/blob/master/pl/lambda-calculation.md)
+[Lambda演算之Y-Combinator的推导](https://github.com/jameszhan/blogs/blob/master/pl/y-combinator.md)
+[lambda演算示例代码](https://raw.githubusercontent.com/jameszhan/rhea/master/codes/clojure/calculation/lambda.clj)

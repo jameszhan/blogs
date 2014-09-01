@@ -133,3 +133,7 @@ Y(fac_gen)(5) //120
 
 说了这么多，这个东西和Y Combinator又有什么关系？其实，我们最终得出的Y函数，其实就是我们所要苦苦找寻的Y Combinator函数，它具有性质Y(F) = F(Y(F)) = F(F(Y(F)))。
 
+
+### 参考
+[Lambda演算之自然数](https://github.com/jameszhan/blogs/blob/master/pl/lambda-calculation.md)
+[Lambda演算之Y-Combinator的推导](https://github.com/jameszhan/blogs/blob/master/pl/y-combinator.md)

@@ -215,5 +215,9 @@ Y g n  = (λf.(λx.λn.f (x x) n) (λx.λn.f (x x) n)) g n
 
 
 
+### 参考
+[Lambda演算之自然数](https://github.com/jameszhan/blogs/blob/master/pl/lambda-calculation.md)
+[Lambda演算之Y-Combinator的推导](https://github.com/jameszhan/blogs/blob/master/pl/y-combinator.md)
+[y-combinator演算示例代码](https://raw.githubusercontent.com/jameszhan/rhea/master/codes/clojure/calculation/deriving_y_combinator.clj)
 
 
