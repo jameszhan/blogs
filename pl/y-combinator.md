@@ -44,7 +44,11 @@
 (assert (= ((fact4 fact4) 5) 120))
 ~~~
 
-我们来看fac-gen的形式，其等价于<pre>(defn fac-gen [f] (if (<= n 0) 1 (* n (f (dec n)))))</pre>，是不是和我们理想中的fact形式已经很接近了，当然其中有一个自由变量n，没关系，我们给他加个帽子。
+我们来看fac-gen的形式，其等价于
+~~~
+(defn fac-gen [f] (if (<= n 0) 1 (* n (f (dec n)))))
+~~~
+是不是和我们理想中的fact形式已经很接近了，当然其中有一个自由变量n，没关系，我们给他加个帽子。
 ~~~clojure
 (defn fact5 [self]
   (fn [n]
@@ -54,7 +58,11 @@
 (assert (= ((fact5 fact5) 5) 120))
 ~~~
 
-这次的fac-gen和我们的理想函数形式非常像了，换成二元就是<pre>(defn fac-gen [f, n] (if (<= n 0) 1 (* n (f (dec n)))))</pre>，这正是我们找寻的理想形式。
+这次的fac-gen和我们的理想函数形式非常像了，换成二元就是
+~~~
+(defn fac-gen [f, n] (if (<= n 0) 1 (* n (f (dec n)))))
+~~~
+这正是我们找寻的理想形式。
 (defn fact6 [self]
   (letfn [(fac-gen [f]
             (fn [n] (if (<= n 0) 1 (* n (f (dec n))))))]
