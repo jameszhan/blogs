@@ -63,11 +63,13 @@
 (defn fac-gen [f, n] (if (<= n 0) 1 (* n (f (dec n)))))
 ~~~
 这正是我们找寻的理想形式。
+~~~clojure
 (defn fact6 [self]
   (letfn [(fac-gen [f]
             (fn [n] (if (<= n 0) 1 (* n (f (dec n))))))]
     (fn [n] ((fac-gen (self self)) n))))
 (assert (= ((fact6 fact6) 5) 120))
+~~~
 
 让我们把fac-gen抽出来，作为一个单独的函数，它刚好就是我们要构造的factorial函数的理想形式，并给出fact7函数的定义。
 ~~~clojure
