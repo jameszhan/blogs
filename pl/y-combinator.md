@@ -149,6 +149,71 @@ Y g = (λf.(λx. f (x x)) (λx. f (x x))) g
     = g (Y g)（Y的定义）
 ~~~
 
+根据定义得出的函数如下，但是它毫无用武之地，当把参数应用到它之上时，它将会进入无穷递归。
+~~~
+(defn y [f]
+  ((fn [x] (f (x x)))
+    (fn [x] (f (x x)))))
+~~~
+
+当该函数应用到f上时，当有
+~~~
+((fn [x] (f (x x))) (fn [x] (f (x x)))))
+~~~
+let g = (fn [x] (f x x)) 当有如下的执行过程
+~~~
+(f (g g)) = (f ((fn [x] (f (x x))) g)) 
+          = (f (f (g g)))
+          ...
+          = (f ... (f (g g)))
+~~~
+由于此处总是eager load，故此函数会进入无穷递归。
+
+有没有办法让(f (x x))不展开呢? 可以，只需要加个lambda就可以使其变成lazy load。
+~~~clojure
+(defn y1 [f]
+  ((fn [x]
+     #(f (x x)))
+    (fn [x]
+      #(f (x x)))))
+~~~
+
+由于新增的lambda没有参数，故在clojure中我们调用的函数也不能有参数，但是已经可以实现递归了，下面的例子会进入无穷递归。
+~~~clojure
+((y1 (fn [f] (println :hello) (f))))
+~~~
+
+让我们给他加入参数，以便做支持更多的调用场景。
+~~~clojure
+(defn y [f]
+  ((fn [x] (fn [n] ((f (x x)) n)))
+    (fn [x] (fn [n] ((f (x x)) n)))))
+(assert (= ((y fac-gen) 5) 120))
+~~~
+
+上面的代码实现有明显重复的地方，根据DRY原则，我们稍稍对源代码进行下改造。
+~~~clojure
+(defn Y [f]
+  ((fn [g] (g g))
+    (fn [x] (fn [args] ((f (x x)) args)))))
+(assert (= ((Y fac-gen) 5) 120))
+~~~
+
+我们根据Y Combinator也同时得出了Y函数的定义，和我们之前根据factorial推演得出的结果一模一样。
+
+
+让我们来证明下，我们的Y确实是一个通用的不动点组合子。
+~~~
+Y = λf.(λx.λn.f (x x) n) (λx.λn.f (x x) n)
+Y g n  = (λf.(λx.λn.f (x x) n) (λx.λn.f (x x) n)) g n
+       = (λx.λn.g (x x) n) (λx.λn.g (x x) n) n
+       = (λy.λm.g (y y) m) (λx.λn.g (x x) n) n
+       = (λm.g ((λx.λn.g (x x) n) (λx.λn.g (x x) n)) m) n
+       = (λm.g (Y g) m) n
+       = g (Y g) n
+~~~
+
+
 
 
 
