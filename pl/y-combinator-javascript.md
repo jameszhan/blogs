@@ -137,3 +137,4 @@ Y(fac_gen)(5) //120
 ### 参考
 1. [Lambda演算之自然数](https://github.com/jameszhan/blogs/blob/master/pl/lambda-calculation.md)
 2. [Lambda演算之Y-Combinator的推导](https://github.com/jameszhan/blogs/blob/master/pl/y-combinator.md)
+3. [Y-Combinator相关代码](https://raw.githubusercontent.com/jameszhan/simplifyjs/master/fp/y_combinator_deriving.js)
