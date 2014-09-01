@@ -176,3 +176,5 @@ two = (succ one)
 (assert (= (church->neg ((plus (succ zero)) (succ (succ zero)))) -3))
 (assert (= (church->neg ((mult three) three)) -9))
 ~~~
+
+[完整示例代码](https://raw.githubusercontent.com/jameszhan/rhea/master/codes/clojure/calculation/lambda.clj)
