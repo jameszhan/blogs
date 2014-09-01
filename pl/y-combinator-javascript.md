@@ -135,5 +135,5 @@ Y(fac_gen)(5) //120
 
 
 ### 参考
-[Lambda演算之自然数](https://github.com/jameszhan/blogs/blob/master/pl/lambda-calculation.md)
-[Lambda演算之Y-Combinator的推导](https://github.com/jameszhan/blogs/blob/master/pl/y-combinator.md)
+1. [Lambda演算之自然数](https://github.com/jameszhan/blogs/blob/master/pl/lambda-calculation.md)
+2. [Lambda演算之Y-Combinator的推导](https://github.com/jameszhan/blogs/blob/master/pl/y-combinator.md)
