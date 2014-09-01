@@ -21,7 +21,7 @@
 (assert (= (fact2 fact2 5) 120))
 ~~~
 
-为了后续处理方面，我们先对该函数进行currying。
+为了后续处理方便，我们先对该函数进行currying。
 ~~~clojure
 (defn fact3 [self] (fn [n] (if (<= n 0) 1 (* n ((self self) (dec n))))))
 (assert (= ((fact3 fact3) 5) 120))
