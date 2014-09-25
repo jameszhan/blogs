@@ -1,0 +1,17 @@
+---
+index: 3
+layout: index
+title: 推荐文章
+permalink: /articles/
+---
+
+<div class="box container-fluid">
+    <h2 class="title">推荐文章</h2>
+    <ul>
+        {% for link in site.data.articles sort_by: 'index' %}
+        <li>
+            <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

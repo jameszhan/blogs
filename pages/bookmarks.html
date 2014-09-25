@@ -1,17 +1,16 @@
 ---
+index: 2
 layout: index
 title: 书签
 permalink: /bookmarks/
 ---
-{{site.data}}
-{% assign links = [{url: 'http://norvig.com/', title: 'Peter Norvig 的个人博客'}] %}
         
 <div class="box container-fluid">
   <h2 class="title">书签</h2>
   <ul>
-    {% for link in links %}
+    {% for link in site.data.bookmarks sort_by: 'index' %}
       <li>
-      <a href="{{ link.url }}">{{ link.title }}</a>
+      <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
       </li>
     {% endfor %}
   </ul>
