@@ -2,7 +2,7 @@
 layout: post
 title:  "编程语言的一些概念"
 date:   2014-09-25 11:00:00
-categories: Programming Language
+categories: PDL
 ---
 ## 编程语言分类
 ### 什么是类型？
