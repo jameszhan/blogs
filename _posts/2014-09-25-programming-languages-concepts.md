@@ -2,7 +2,7 @@
 layout: post
 title:  "编程语言的一些概念"
 date:   2014-09-25 11:00:00
-categories: 编程语言
+categories: Programming Language
 ---
 ## 编程语言分类
 ### 什么是类型？
@@ -83,7 +83,7 @@ LOP是一种面向领域的，高度声明式的编程方式，它的抽象维�
 函数式把程序看作一个数学函数，输入是自变量，输出是因变量，编程就是设计一系列函数，通过表达式变换以完成计算；
 逻辑式把程序看作一个逻辑证明，输入是题设，输出是结论，编程就是设计一系列命题，通过逻辑推理以完成证明。
 绘成表格如下：
-<table class="table table-bordered">
+<table border="1">
 <tr><td>范式</td><td>程序</td><td>输入</td><td>输出</td><td>程序设计</td><td>程序运行</td></tr>
 <tr><td>命令式</td><td>自动机</td><td>初始状态</td><td>最终状态 </td><td>设计指令</td><td>命令执行</td></tr>
 <tr><td>函数式</td><td>数学函数</td><td>自变量</td><td>因变量</td><td>设计函数</td><td>表达式变换</td></tr>
