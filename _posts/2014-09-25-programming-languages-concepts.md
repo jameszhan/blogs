@@ -32,7 +32,7 @@ categories: PDL
 
 什么是脚本语言？
 
-
+对于脚本语言的看法，我比较赞同王垠同学的观点，有兴趣的同学可以参考[什么是“脚本语言”](http://www.yinwang.org/blog-cn/2013/03/29/scripting-language/)
 
 
 ## 编程范型
