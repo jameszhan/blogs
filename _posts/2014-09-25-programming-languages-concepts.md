@@ -137,8 +137,8 @@ lambda calculus 的程序和机器有这样的一一对应关系：一个变量�
 
 关于lambda演算的相关知识，可以参考我之前的2篇文章。
 
-* [Lambda演算之自然数](http://www.atatech.org/articles/21845)
-* [Lambda演算之Y-Combinator的推导(Clojure描述)](http://www.atatech.org/articles/21846)
+* [Lambda演算之自然数(Clojure描述)](http://jameszhan.github.io/pdl/2014/09/10/lambda-church-number.html)
+* [Lambda演算之Y-Combinator的推导(Clojure描述)](http://jameszhan.github.io/pdl/2014/09/18/lambda-y-combinator.html)
 
 闭包 vs 函数指针
 
@@ -205,7 +205,7 @@ extension Int {
 
 * C#
 
-~~~c#
+~~~cs
 namespace ExtensionMethods {
     public static class MyExtensions {
         public static int square(this Int32 value) {

@@ -1,12 +1,9 @@
 ---
 layout: post
-title:  "Lambda演算之Y-Combinator的推导(Javascript版)"
-date:   2014-09-18 12:00:00
+title:  "Lambda演算之Y-Combinator的推导(Javascript描述)"
+date:   2014-09-19 12:00:00
 categories: PDL
 ---
-
-
-# Lambda演算之Y-Combinator的推导
 
 上一节中，我们讲到了如何使用λ演算来描述自然数，可以看出λ演算的表现力确实非常强大，然而遗憾的是，由于lambda演算中使用的都是匿名函数，所以它无法很直观地表述递归。
 如果缺少了递归，λ演算的能力无疑会大打折扣。
@@ -143,6 +140,6 @@ Y(fac_gen)(5) //120
 
 
 ### 参考
-1. [Lambda演算之自然数](http://www.atatech.org/articles/21845)
-2. [Lambda演算之Y-Combinator的推导(Clojure描述)](http://www.atatech.org/articles/21846)
+1. [Lambda演算之自然数](http://jameszhan.github.io/pdl/2014/09/10/lambda-church-number.html)
+2. [Lambda演算之Y-Combinator的推导(Clojure描述)](http://jameszhan.github.io/pdl/2014/09/18/lambda-y-combinator.html)
 3. [Y-Combinator相关代码](https://raw.githubusercontent.com/jameszhan/simplifyjs/master/fp/y_combinator_deriving.js)

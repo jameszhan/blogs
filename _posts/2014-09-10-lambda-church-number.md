@@ -5,9 +5,6 @@ date:   2014-09-10 12:00:00
 categories: PDL
 ---
 
-
-# Lambda演算之自然数
-
 λ演算（英语：lambda calculus，λ-calculus）是一套用于研究函数定义、函数应用和递归的形式系统。它由阿隆佐·邱奇和他的学生斯蒂芬·科尔·克莱尼在20世纪30年代引入。这种演算可以用来清晰地定义什么是一个可计算函数。
 
 ## λ演算规则
@@ -192,5 +189,5 @@ two = (succ one)
 
 
 ### 参考
-1. [Lambda演算之Y-Combinator的推导](http://www.atatech.org/articles/21846)
+1. [Lambda演算之Y-Combinator的推导](http://jameszhan.github.io/pdl/2014/09/18/lambda-y-combinator.html)
 2. [lambda演算示例代码](https://raw.githubusercontent.com/jameszhan/rhea/master/codes/clojure/calculation/lambda.clj)
