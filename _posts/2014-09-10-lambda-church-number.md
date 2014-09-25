@@ -64,6 +64,7 @@ categories: PDL
 其实只要定义出zero和succ两个，我们就可以定义出所有的自然数。
 
 你可以使用如下的方式给出zero和succ的定义。
+
 ~~~clojure
 (defn zero [f x] x)
 (defn succ [n] (fn [f x] (f (n f x))))
@@ -73,6 +74,7 @@ categories: PDL
 我们可以很方便地使用单参函数模拟多参函数，但是反过来却不一定。有兴趣的朋友可以参考：[多参描述自然数](https://raw.githubusercontent.com/jameszhan/rhea/master/codes/clojure/calculation/church-number.clj).
 
 我们可以根据代数变换的形式得出one, two, three的定义。
+
 ~~~
 one = (succ zero)
     = (fn [f] (fn [x] (f (((zero) f) x))))
@@ -86,10 +88,12 @@ two = (succ one)
 ~~~
 
 根据以上的推导过程，我们可以很容易地发现规律，我们可以很发现数字n的定义为
-~~~
+
+~~~clojure
 (defn n [f] (fn[x] (f...(f x))))
 ~~~
 ，其中(f...(f x))中有n个f。
+
 ~~~clojure
 (defn one [f] (fn [x] (f x)))
 (defn two [f] (fn [x] (f (f x))))
@@ -97,6 +101,7 @@ two = (succ one)
 ~~~
 
 根据定义，我们可以很容易地给出plus，mult，exp的定义，因为+，*，**在自然数的操作里面是封闭的，所以其定义还是相当简洁和直观的。
+
 ~~~clojure
 (defn plus [m] (fn [n] (fn [f] (fn [x] ((m f) ((n f) x))))))
 (defn mult [m] (fn [n] (fn [f] (n (m f)))))
@@ -109,7 +114,8 @@ two = (succ one)
 3. exp可以理解为，把a展开n次，得到(a (a...(a)))，当给定函数f和初始值x时，可以很容易得出其总共调用了(a ** n)次f。
 
 前驱和减法的定义不是很直观，毕竟其在自然数域里面操作并不封闭。
-~~~clolure
+
+~~~clojure
 (defn pred [n]
   (fn [f]
     (fn [x]
@@ -121,6 +127,7 @@ two = (succ one)
 ~~~
 
 通过下面的函数，我们很容易把我们的邱奇数转换为我们熟悉的自然数表示。
+
 ~~~clojure
 (defn church->int [n] ((n (fn [x] (inc x))) 0))
 ~~~

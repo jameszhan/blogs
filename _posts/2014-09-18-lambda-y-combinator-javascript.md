@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Lambda演算之Y-Combinator的推导(Javascript描述)"
+title:  "Lambda演算之Y-Combinator的推导(JS描述)"
 author: 詹子知(James Zhan)
 date:   2014-09-19 12:00:00
 meta:   版权所有，转载须声明出处
@@ -17,6 +17,7 @@ categories: PDL
 ### 下面我们就是用factorial函数为原型，来看看如何使用lambda演算基本的规则，为其增加递归的能力。
 
 传统定义方式，不过这个方式不符合我们的需求，因为它使用到了函数自身fact。
+
 ~~~javascript
 var fact = function(n){
     return n <= 1 ? 1 : n * fact(n - 1);
@@ -24,6 +25,7 @@ var fact = function(n){
 ~~~
 
 几乎所有的问题解决过程都可以通过分层来解决，既然它不允许我们直接使用fact，那我们是不是可以直接把fact作为函数传入呢？
+
 ~~~javascript
 var fac = function(f, n){
     return n <= 1 ? 1 : n * f(f, n - 1);
@@ -31,6 +33,7 @@ var fac = function(f, n){
 ~~~
 
 为了后续处理方便，我们先对该函数进行currying。
+
 ~~~javascript
 var fac1 = function(f){
     return function(n) {
@@ -41,6 +44,7 @@ var fac1 = function(f){
 
 ((self self) (dec n)) 是不是有点丑陋，我们知道λ演算是数学家们搞出来的，他们对构造形式是有很严重的洁癖的。既然我们就是函数本身，为什么还需要f(f)这样多此一举呢。
 如果我们的定义能变成下面这样就比较完美了。
+
 ~~~
 var fac = function(f){
     return function(n) {
@@ -49,6 +53,7 @@ var fac = function(f){
 };
 ~~~
 这样也许更符合数学家们的口味，但是该函数是无法被直接执行的，这个使我们暂时假定的factorial的理想函数形式。为了构造这个理想函数形式，我们不妨把它变成f(n - 1)，下面我们试着把f(f)拎出来，用作参数f传入。
+
 ~~~javascript
 var fac2 = function(f) {
     return function(n) {
@@ -61,6 +66,7 @@ var fac2 = function(f) {
 ~~~
 
 可以看出h已经是fac函数的理想形式，不过它还包含自由变量n，没关系，我们可以把它先约束起来。
+
 ~~~javascript
 var fac3 = function(f) {
     return function(n) {
@@ -75,6 +81,7 @@ var fac3 = function(f) {
 ~~~
 
 让我们把h抽出来，作为一个单独的函数，它刚好就是我们要构造的factorial函数的理想形式，并给出fac4函数的定义。
+
 ~~~javascript
 var fac_gen = function(g){
     return function(m){
@@ -89,6 +96,7 @@ var fac4 = function(f){
 ~~~
 
 其实这个时候，fact4和factorial的计算过程已经没有什么关系了，换而言之，其实它可以更通用一些，我们不妨给它取个通用些的名字。
+
 ~~~javascript
 var y = function(gen){
     return function(f){
@@ -101,6 +109,7 @@ var fac5 = y(fac_gen);
 ~~~
 
 事实确是如此，该函数有一种神奇的能力，它不仅使可以计算factorial，它事实上可以计算所有形如factorial理想形式的函数递归。
+
 ~~~javascript
 var fib_gen = function(f){
     return function(n){
@@ -113,6 +122,7 @@ y(fib_gen)(y(fib_gen))(6) //8
 
 
 我们看下我们的调用，都是形如：y(*_gen)(y(*_gen))(n)的形式，还是相当丑陋的，我们不如精简下，简化其调用过程。
+
 ~~~javascript
 var y1 = function(gen) {
     var g = function(f) {
@@ -124,6 +134,7 @@ var y1 = function(gen) {
 };
 ~~~
 更常规的写法
+
 ~~~javascript
 var Y = function(gen){
     return (function(g){
