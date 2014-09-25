@@ -449,7 +449,8 @@ print(h.b())
 ### DSL
 
 #### 外部DSL
-1. awk是一个很典型外部DSL例子，其语法为 awk 'pattern {action}'，其做的事情非常简单，扫描所有的行，一旦发现符合pattern的行，则执行action。
+
+* awk是一个很典型外部DSL例子，其语法为 awk 'pattern {action}'，其做的事情非常简单，扫描所有的行，一旦发现符合pattern的行，则执行action。
 
 以下例子用于找出所有sugou.1688.com所有来源链接。
 
@@ -457,7 +458,7 @@ print(h.b())
 less cookie_log | awk '/sugou\.1688\.com/{print $13;}' | sort | uniq
 ~~~
 
-2. make 一个更典型的外部DSL例子
+* make 一个更典型的外部DSL例子
 
 ~~~makefile
 hello:hello.o
@@ -468,7 +469,7 @@ clean:
     rm -f *.o hello
 ~~~
 
-3. 由于Java语言的特性，Java中使用的DSL一般都用XML来描述，例如ANT和Maven，下面看下Maven Project管理例子。
+* 由于Java语言的特性，Java中使用的DSL一般都用XML来描述，例如ANT和Maven，下面看下Maven Project管理例子。
 
 ~~~xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -497,7 +498,7 @@ clean:
 
 
 #### 内部DSL
-1. Clojure Project管理
+* Clojure Project管理
 
 ~~~clojure
 (defproject hello-world "0.1.0-SNAPSHOT"
@@ -510,7 +511,7 @@ clean:
                  [ring/ring-jetty-adapter "1.3.0"]])
 ~~~
 
-2. Ruby Gem file
+* Ruby Gem file
 
 ~~~ruby
 source 'https://ruby.taobao.org/'
@@ -532,7 +533,7 @@ end
 ~~~
 
 
-3. RSpec例子(是不是很优雅)
+* RSpec例子(是不是很优雅)
 
 ~~~ruby
 describe Post do
