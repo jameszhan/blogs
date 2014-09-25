@@ -1,0 +1,18 @@
+---
+layout: index
+title: 书签
+permalink: /bookmarks/
+---
+{{site.data}}
+{% assign links = [{url: 'http://norvig.com/', title: 'Peter Norvig 的个人博客'}] %}
+        
+<div class="box container-fluid">
+  <h2 class="title">书签</h2>
+  <ul>
+    {% for link in links %}
+      <li>
+      <a href="{{ link.url }}">{{ link.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

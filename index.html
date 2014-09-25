@@ -1,19 +1,17 @@
 ---
-layout: default
+title: 首页
+layout: index
 ---
 
 <div class="box container-fluid">
   <h2 class="title">文章列表</h2>
-
   <ul>
     {% for post in site.posts %}
       <li>
-          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          <span class="pull-right">{{ post.date | date: "%Y-%m-%d" }}</span>
+      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      <span class="pull-right">{{ post.date | date: "%Y-%m-%d" }}</span>
       </li>
     {% endfor %}
   </ul>
-
-  <br />
-  <p class="rss-subscribe">订阅 <a href="{{ "/feed.xml" | prepend: site.baseurl }}">通过 RSS</a></p>
 </div>
+<p class="rss-subscribe">订阅 <a href="{{ "/feed.xml" | prepend: site.baseurl }}">通过 RSS</a></p>

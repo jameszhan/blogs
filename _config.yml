@@ -1,5 +1,5 @@
 # Site settings
-title: 博学，切问，近思
+title: 狼来了
 email: zhiqiangzhan@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   詹子知，Full Stack Engineer，资深码农，精通系统底层和各种编程语言理论。
@@ -7,6 +7,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://jameszhan.github.io" # the base hostname & protocol for your site
 twitter_username: jameszhan
 github_username:  jameszhan
+permalink: /:year/:month/:day/:title
 
 # Build settings
 markdown: redcarpet
