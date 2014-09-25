@@ -2,20 +2,17 @@
 layout: default
 ---
 
-<div class="home container-fluid">
+<div class="box container-fluid">
+  <h2 class="title">文章列表</h2>
 
-  <h2 class="page-heading">文章列表</h2>
-
-  <div class="row">
+  <ul>
     {% for post in site.posts %}
-      <div class="col-md-8">
+      <li>
           <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </div>
-      <div class="col-md-4">
           <span class="pull-right">{{ post.date | date: "%Y-%m-%d" }}</span>
-      </div>
+      </li>
     {% endfor %}
-  </div>
+  </ul>
 
   <br />
   <p class="rss-subscribe">订阅 <a href="{{ "/feed.xml" | prepend: site.baseurl }}">通过 RSS</a></p>
