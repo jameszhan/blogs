@@ -352,8 +352,8 @@ C++模板是一个非常强大的元编程工具，配上预处理宏，其几�
 ##### 万能的eval
 
 Python, JavaScript都只含有全局的eval，只能解析字符串，尽管也可以完成想要的功能，确是相当不便和不安全。
-Ruby 中不仅有传统的eval，还有class_eval，instance_eval，不仅可以解析字符串，还允许执行代码块。
-上例中的Ruby Optional的例子就用到了class_eval，把eval限制在了类的内部。
+Ruby 中不仅有传统的eval，还有class\_eval，instance\_eval，不仅可以解析字符串，还允许执行代码块。
+上例中的Ruby Optional的例子就用到了class\_eval，把eval限制在了类的内部。
 
 ##### 强大的宏
 
@@ -455,10 +455,10 @@ print(h.b())
 
 * awk是一个很典型外部DSL例子，其语法为 awk 'pattern {action}'，其做的事情非常简单，扫描所有的行，一旦发现符合pattern的行，则执行action。
 
-以下例子用于找出所有sugou.1688.com所有来源链接。
+以下例子用于找出所有sugou.search.com所有来源链接。
 
 ~~~sh
-less cookie_log | awk '/sugou\.1688\.com/{print $13;}' | sort | uniq
+less cookie_log | awk '/sugou\.search\.com/{print $13;}' | sort | uniq
 ~~~
 
 * make 一个更典型的外部DSL例子
