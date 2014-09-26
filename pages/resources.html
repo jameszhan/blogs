@@ -1,14 +1,14 @@
 ---
-index: 6
+weight: 5
 layout: index
 title: 资源
-permalink: /resources/
+permalink: /resoruces/
 ---
 
 <div class="box container-fluid">
-    <h2 class="title">推荐文章</h2>
+    <h2 class="title">消息</h2>
     <ul>
-        {% for link in site.data.resources sort_by: 'index' %}
+        {% for link in site.data.resources sort_by: 'weight' %}
         <li>
             <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
         </li>

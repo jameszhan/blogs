@@ -1,14 +1,14 @@
 ---
-index: 3
+weight: 3
 layout: index
-title: 推荐文章
-permalink: /articles/
+title: 文章
+permalink: /news/
 ---
 
 <div class="box container-fluid">
     <h2 class="title">推荐文章</h2>
     <ul>
-        {% for link in site.data.articles sort_by: 'index' %}
+        {% for link in site.data.news sort_by: 'weight' %}
         <li>
             <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
         </li>

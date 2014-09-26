@@ -1,7 +1,7 @@
 -
   url: http://norvig.com/
   title: Peter Norvig个人博客
-  index: 0
+  weight: 0
 -
   url: http://www.masteringemacs.org/
   title: Mastering Emacs
