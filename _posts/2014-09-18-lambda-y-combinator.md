@@ -192,6 +192,7 @@ Y g = (λf.(λx. f (x x)) (λx. f (x x))) g
 ((fn [x] (f (x x))) (fn [x] (f (x x)))))
 ~~~
 let g = (fn [x] (f x x)) 当有如下的执行过程
+
 ~~~
 (f (g g)) = (f ((fn [x] (f (x x))) g)) 
           = (f (f (g g)))

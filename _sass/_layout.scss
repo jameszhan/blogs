@@ -91,16 +91,11 @@
 /**
  * Site footer
  */
-.site-footer {
-    border-top: 1px solid $grey-color-light;
-    padding: $spacing-unit 0;
+.footer-content {
+  margin-top: 10px;
+  color: #888;
+  font-family: Kaiti Kai "Kaiti K" "Comic Sans MS";
 }
-
-.footer-heading {
-    font-size: 18px;
-    margin-bottom: $spacing-unit / 2;
-}
-
 .contact-list,
 .social-media-list {
     list-style: none;
@@ -180,13 +175,13 @@
   ul {
     margin: 0;
     list-style: none;
+    li {
+      margin: 0;
+      border-bottom: 1px dotted #ececec;
+      color: #666;
+      padding: 10px 0 5px 0;
+    }
   }
-  li {
-    margin: 0;
-    border-bottom: 1px dotted #ececec;
-    padding: 10px 0 5px 0;
-  }
-
 }
 
 
@@ -233,7 +228,6 @@
     font-size: 42px;
     letter-spacing: -1px;
     line-height: 1;
-
     @include media-query($on-laptop) {
         font-size: 36px;
     }
@@ -244,7 +238,6 @@
 
     h2 {
         font-size: 32px;
-
         @include media-query($on-laptop) {
             font-size: 28px;
         }
@@ -252,7 +245,6 @@
 
     h3 {
         font-size: 26px;
-
         @include media-query($on-laptop) {
             font-size: 22px;
         }
@@ -260,7 +252,6 @@
 
     h4 {
         font-size: 20px;
-
         @include media-query($on-laptop) {
             font-size: 18px;
         }
@@ -272,4 +263,12 @@
             text-align: center;
         }
     }
+}
+
+article {
+  ul{
+    li{
+      list-style-type: square;
+    }
+  }
 }

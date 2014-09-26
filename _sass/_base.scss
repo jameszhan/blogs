@@ -21,7 +21,7 @@ body {
     color: $text-color;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
-    padding-top: 40px;
+    padding-top: 70px;
 }
 
 
@@ -203,3 +203,9 @@ pre {
         }
     }
 }
+
+a, a:hover, a:visited {
+  text-decoration: none;
+  color: #666;
+}
+

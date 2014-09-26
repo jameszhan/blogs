@@ -2,7 +2,7 @@
 layout: post
 title:  "Lambda演算之Y-Combinator的推导(JS描述)"
 author: 詹子知(James Zhan)
-date:   2014-09-19 12:00:00
+date:   2014-09-18 19:00:00
 meta:   版权所有，转载须声明出处
 categories: PDL
 ---
