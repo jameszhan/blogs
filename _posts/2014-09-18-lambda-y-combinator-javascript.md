@@ -4,7 +4,8 @@ title:  "Lambda演算之Y-Combinator的推导(JS描述)"
 author: 詹子知(James Zhan)
 date:   2014-09-18 19:00:00
 meta:   版权所有，转载须声明出处
-categories: PDL
+categories: pdl
+tags: [Lambda, 函数式编程, JavaScript, 程序设计语言]
 ---
 
 上一节中，我们讲到了如何使用λ演算来描述自然数，可以看出λ演算的表现力确实非常强大，然而遗憾的是，由于lambda演算中使用的都是匿名函数，所以它无法很直观地表述递归。

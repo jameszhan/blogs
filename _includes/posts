@@ -1,0 +1,8 @@
+<ul>
+    {% for post in posts %}
+    <li class="post">
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <span class="pull-right">{{ post.date | date: "%Y-%m-%d" }}</span>
+    </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,7 @@
+{% for tag in tags %}
+    {% if tag[0] %}
+    <li class="tag"><a href="/tags/#{{ tag[0] }}">{{ tag[0] }} <span>{{ tag[1].size }}</span></a></li>
+    {% else %}
+    <li class="tag"><a href="/tags/#{{ tag }}">{{ tag }}<span>{{ site.tags[tag].size }}</span></a></li>
+    {% endif %}
+{% endfor %}

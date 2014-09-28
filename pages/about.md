@@ -5,4 +5,4 @@ group: popup
 permalink: /about/
 ---
 
-It' nothing yet!
+这家伙很懒，什么都没有留下！

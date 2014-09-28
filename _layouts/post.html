@@ -11,5 +11,15 @@ layout: default
   <article class="post-content">
     {{ content }}
   </article>
+  <ul class="list-inline">
+    <li><i class="glyphicon glyphicon-folder-open"></i></li>
+    {% assign categories = page.categories %}
+    {% include categories %}
+  </ul>
+  <ul class="list-inline">
+    <li><i class="glyphicon glyphicon-tags"></i></li>
+    {% assign tags = page.tags %}
+    {% include tags %}
+  </ul>
 
 </div>

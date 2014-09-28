@@ -175,7 +175,7 @@
   ul {
     margin: 0;
     list-style: none;
-    li {
+    li.post {
       margin: 0;
       border-bottom: 1px dotted #ececec;
       color: #666;
@@ -273,6 +273,33 @@ article {
   }
 }
 
+.tag, .category {
+  a {
+    padding: 1px 2px 0 3px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    display: block;
+    background: #eee;
+    color: #555;
+    border-radius: 3px;
+    text-decoration: none;
+    border: 1px dashed #cccccc;
+    &:hover {
+      background-color: #e5e5e5;
+    }
+    &.active {
+      background: #57A957;
+      border: 1px solid #4c964d;
+      color: #FFF;
+    }
+    span {
+      vertical-align: super;
+      font-size: 0.8em;
+      color: #909090;
+    }
+  }
+}
+
 #ds-thread.ds-thread {
   #ds-reset {
     .ds-comments-info {
@@ -288,6 +315,5 @@ article {
       display: none;
     }
   }
-
 }
 
