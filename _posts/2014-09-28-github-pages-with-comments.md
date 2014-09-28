@@ -40,10 +40,13 @@ OAuth协议为用户资源的授权提供了一个安全的、开放而又简易
 4. 减少不必要的记忆信息，比如账号和密码信息等。
 
 
-##### 社会化评论系统
+#### 社会化评论系统
 
 目前第三方社交评论系统主要有Disqus，Facebook Comment，评论啦(pinglun.la)、友言(uyan.cc)，多说(duoshuo.com)等。
 其中，Disqus和Facebook Comment由于国情原因，在国内网站上几乎没有使用价值。评论啦(pinglun.la)、友言(uyan.cc)，多说(duoshuo.com)等则依托于微博，QQ等第三方登陆平台，可以很方便地接入到我们网站中来。
+
+
+
 
 
 ### 给博客加入评论功能
