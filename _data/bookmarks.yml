@@ -18,10 +18,19 @@
   url: http://news.dbanotes.net/
   title: 小道消息
 -
+  url: http://www.ruanyifeng.com/
+  title: 阮一峰的个人网站
+-
+  url: http://www.ibm.com/developerworks/cn/
+  title: IBM developerWorks
+-
   url: http://guides.rubyonrails.org/
   title: Ruby on Rails Guides
 -
   url: https://www.ruby-toolbox.com/
   title: The Ruby Toolbox
+-
+  url: http://blog.fnil.net/
+  title: 庄晓丹个人博客
 
 
