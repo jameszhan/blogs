@@ -5,27 +5,16 @@ group: navigation
 permalink: /tags/
 ---
 
-<div class="container">
-<div class="col-md-9">
 {% for tag in site.tags %}
     <div class="box">
-    <h2 class="title" id="{{ tag[0] }}">{{ tag[0] }}</h2>
+    <h2 class="title" id="{{ tag[0] }}">
+        <span class="icon-text"><i class="glyphicon glyphicon-tag"></i> {{ tag[0] }}</span>
+    </h2>
     {% assign posts = tag[1]%}
     {% include posts %}
     </div>
 {% endfor %}
-</div>
 
-<div class="col-md-3">
-  <div class="box">
-    <h2 class="title">标签</h2>
-    <ul class="list-inline">
-      {% assign tags = site.tags %}
-      {% include tags %}
-    </ul>
-  </div>
-</div>
-</div>
 
 
 

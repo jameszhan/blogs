@@ -167,6 +167,9 @@
     margin:0 -10px; padding:0 10px; margin-bottom:8px;
     color:#999; line-height:100%;
     border-bottom:1px solid #ddd; padding-bottom:8px;
+    .icon-text{
+      vertical-align: top;
+    }
   }
   &.box_gray {
     background-color: #F5F5F5;

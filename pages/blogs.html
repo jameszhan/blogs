@@ -1,0 +1,20 @@
+---
+layout: navigation
+title: 博客
+group: navigation
+permalink: /blogs/
+---
+<div class="box">
+    <h2 class="title" id="{{ tag[0] }}">
+        文章
+        <a class="pull-right rss" href="{{ '/feed.xml' | prepend: site.baseurl }}">
+            <i class="glyphicon glyphicon-rss"></i>RSS
+        </a>
+    </h2>
+    {% assign posts = site.posts%}
+    {% include posts %}
+</div>
+
+
+
+
