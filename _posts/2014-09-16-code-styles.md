@@ -57,10 +57,10 @@ tags: [Clojure, 代码风格, Ruby, JavaScript, 对象模型]
 
 #### 语言特性
 ##### C++ Feature
-![C++语言特性](/images/cpp_features.png)
+![C++语言特性](/assets/images/cpp_features.png)
 
 ##### Ruby Feature
-![Ruby语言特性](/images/ruby_features.png)
+![Ruby语言特性](/assets/images/ruby_features.png)
 
 ##### Coffeescript Feature
-![Coffeescript语言特性](/images/coffeescript_features.png)
+![Coffeescript语言特性](/assets/images/coffeescript_features.png)

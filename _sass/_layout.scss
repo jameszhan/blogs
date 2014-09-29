@@ -317,3 +317,18 @@ article {
   }
 }
 
+a.rss {
+  display: block;
+  font-size: 12px;
+  vertical-align: bottom;
+  .glyphicon-rss {
+    vertical-align: top;
+    display: inline-block;
+    overflow: hidden;
+    margin-right: 1px;
+    height: 16px;
+    width: 16px;
+    background-image: url('/assets/images/icons/rss-icon.png');
+  }
+}
+

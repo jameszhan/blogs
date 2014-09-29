@@ -4,7 +4,10 @@ layout: index
 ---
 
 <div class="box container-fluid">
-  <h2 class="title">文章列表</h2>
+  <h2 class="title">
+    文章列表
+    <a class="pull-right rss" href="{{ '/feed.xml' | prepend: site.baseurl }}"><i class="glyphicon glyphicon-rss"></i>RSS</a>
+  </h2>
   {% assign posts = site.posts%}
   {% include posts %}
 </div>
