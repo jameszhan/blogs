@@ -1,9 +1,11 @@
+<div class="analytics">
 <!-- 百度统计开始 -->
 <script type="text/javascript">
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4a9354184739dfe6490722e2ad838394' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <!-- 百度统计结束 -->
+</div>
 
 <div class="modal fade" id="globalModal" tabindex="-1" role="dialog" aria-labelledby="globalModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
