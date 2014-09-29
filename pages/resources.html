@@ -7,7 +7,7 @@ permalink: /resoruces/
 
 <div class="box container-fluid">
     <h2 class="title">消息</h2>
-    <ul>
+    <ul class="listing">
         {% for link in site.data.resources sort_by: 'weight' %}
         <li>
             <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>

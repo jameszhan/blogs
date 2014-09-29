@@ -1,6 +1,6 @@
-<ul>
+<ul class="listing">
     {% for post in posts %}
-    <li class="post">
+    <li>
         <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         <span class="pull-right">{{ post.date | date: "%Y-%m-%d" }}</span>
     </li>
