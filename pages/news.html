@@ -6,7 +6,12 @@ permalink: /news/
 ---
 
 <div class="box container-fluid">
-    <h2 class="title">推荐文章</h2>
+    <h2 class="title">
+        <span class="icon-text"><i class="glyphicon glyphicon-eye-open"></i>
+            他山之石
+        </span>
+    </h2>
+
     <ul class="listing">
         {% for link in site.data.news sort_by: 'weight' %}
         <li>

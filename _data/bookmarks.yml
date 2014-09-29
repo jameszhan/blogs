@@ -6,8 +6,8 @@
   url: http://www.masteringemacs.org/
   title: Mastering Emacs
 -
-  url: http://www.braveclojure.com/
-  title: Clojure for the Brave and True
+  url: http://www.ibm.com/developerworks/cn/
+  title: IBM developerWorks
 -
   url: http://www.yinwang.org/
   title: 王垠个人博客
@@ -20,9 +20,6 @@
 -
   url: http://www.ruanyifeng.com/
   title: 阮一峰的个人网站
--
-  url: http://www.ibm.com/developerworks/cn/
-  title: IBM developerWorks
 -
   url: http://guides.rubyonrails.org/
   title: Ruby on Rails Guides

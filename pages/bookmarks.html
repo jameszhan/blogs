@@ -6,7 +6,10 @@ permalink: /bookmarks/
 ---
         
 <div class="box container-fluid">
-  <h2 class="title">书签</h2>
+  <span class="icon-text">
+    <i class="glyphicon glyphicon-bookmark"></i>
+    书签
+  </span>
   <ul class="listing">
     {% for link in site.data.bookmarks sort_by: 'index' %}
       <li>
