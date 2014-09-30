@@ -11,9 +11,6 @@ module Jekyll
     safe true
 
     def generate(site)
-      puts "#" * 100
-      p site.layouts.map{|k, n| k }
-      puts "*" * 100
       if site.layouts.key? 'news'
         dir = site.config['category_dir'] || 'categories'
         site.categories.keys.each do |category|

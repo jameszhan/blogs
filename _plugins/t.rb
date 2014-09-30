@@ -6,7 +6,7 @@ module Jekyll
     attr_reader :context, :vocabulary
 
     def t(obj)
-      vocabulary[obj] || obj.classify
+      "HELLO#{vocabulary[obj] || obj.classify}"
     end
 
     def vocabulary
