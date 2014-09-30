@@ -16,7 +16,7 @@ module Jekyll
       "#Jekyll:Post @id=#{self.id.inspect}"
     end
   end
-  
+
   class Page
     def inspect
       "#Jekyll:Page @name=#{self.name.inspect}"

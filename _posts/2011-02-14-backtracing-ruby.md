@@ -4,7 +4,7 @@ title:  "回溯算法Ruby实现"
 author: 詹子知(James Zhan)
 date:   2011-02-14 10:52:00
 meta:   版权所有，转载须声明出处
-categories: algorithm
+category: algorithm
 tags: [算法, Ruby, 回溯法]
 ---
 

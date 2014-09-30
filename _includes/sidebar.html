@@ -1,5 +1,15 @@
 <div class="box">
     <h2 class="title">
+        <span class="icon-text"><i class="glyphicon glyphicon-tags"></i> 分类</span>
+    </h2>
+    <ul class="list-inline">
+        {% assign categories = site.categories %}
+        {% include categories %}
+    </ul>
+</div>
+
+<div class="box">
+    <h2 class="title">
         <span class="icon-text"><i class="glyphicon glyphicon-tags"></i> 标签</span>
     </h2>
     <ul class="list-inline">

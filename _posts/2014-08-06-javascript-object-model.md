@@ -4,7 +4,7 @@ title:  "JavaScript 对象模型"
 author: 詹子知(James Zhan)
 date:   2014-08-06 12:00:00
 meta:   版权所有，转载须声明出处
-categories: javascript
+category: javascript
 tags: [JavaScript]
 ---
 

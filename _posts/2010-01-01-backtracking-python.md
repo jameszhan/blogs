@@ -4,7 +4,7 @@ title:  "回溯算法Python实现"
 author: 詹子知(James Zhan)
 date:   2010-01-01 19:52:00
 meta:   版权所有，转载须声明出处
-categories: algorithm
+category: algorithm
 tags: [算法, Python, 回溯法]
 ---
 

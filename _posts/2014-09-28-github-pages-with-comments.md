@@ -4,7 +4,7 @@ title:  "如何实现Github博客评论功能"
 author: 詹子知(James Zhan)
 date:   2014-09-28 18:00:00
 meta:   版权所有，转载须声明出处
-categories: github
+category: github
 tags: [GitHub, JavaScript]
 ---
 

@@ -1,3 +1,7 @@
 {% for category in categories %}
-<li class="category"><a href="#">{{ category }} <span>{{ site.categories[category].size }}</span></a></li>
+    {% if category[0] %}
+    <li class="tag"><a href="/categories/#{{ category[0] }}">{{ category[0] }} <span>{{ category[1].size }}</span></a></li>
+    {% else %}
+    <li class="tag"><a href="/categories/#{{ category }}">{{ category }}<span>{{ site.categories[category].size }}</span></a></li>
+    {% endif %}
 {% endfor %}

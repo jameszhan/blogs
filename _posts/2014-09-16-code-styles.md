@@ -3,7 +3,7 @@ layout: post
 title:  "不同编程语言的代码风格比较"
 author: 詹子知(James Zhan)
 date:   2014-09-16 00:00:00
-categories: PDL
+category: PDL
 tags: [Clojure, 代码风格, Ruby, JavaScript, 对象模型]
 ---
 

@@ -4,7 +4,7 @@ title:  "Linux下的权限管理技巧"
 author: 詹子知(James Zhan)
 date:   2014-08-08 12:00:00
 meta:   版权所有，转载须声明出处
-categories: linux
+category: linux
 tags: [Linux, Shell]
 ---
 ##代码示例

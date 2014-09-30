@@ -3,7 +3,7 @@ layout: post
 title:  "Ruby元编程技巧"
 author: 詹子知(James Zhan)
 date:   2014-09-01 12:00:00
-categories: ruby
+category: ruby
 tags: [Ruby, 元编程, DSL]
 ---
 （摘自ruby元编程原书附录）

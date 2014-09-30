@@ -4,7 +4,7 @@ title:  "Lambda演算之Y-Combinator的推导"
 author: 詹子知(James Zhan)
 date:   2014-09-18 12:00:00
 meta:   版权所有，转载须声明出处
-categories: pdl
+category: pdl
 tags: [Lambda, 函数式编程, Clojure, 程序设计语言]
 ---
 

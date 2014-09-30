@@ -4,7 +4,7 @@ title:  "归并排序(C语言描述)"
 author: 詹子知(James Zhan)
 date:   2009-10-10 16:52:00
 meta:   版权所有，转载须声明出处
-categories: algorithm
+category: algorithm
 tags: [算法, C]
 ---
 

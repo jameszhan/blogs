@@ -4,7 +4,7 @@ title:  "回溯算法Clojure实现"
 author: 詹子知(James Zhan)
 date:   2014-05-29 19:52:00
 meta:   版权所有，转载须声明出处
-categories: algorithm
+category: algorithm
 tags: [算法, Clojure, 回溯法, 函数式编程]
 ---
 
