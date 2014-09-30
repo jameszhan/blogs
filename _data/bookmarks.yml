@@ -1,7 +1,19 @@
 -
+  url: http://chuansongme.com/
+  title: 传送门(微信公众账号和文章的导航及推荐)
+-
+  url: http://www.wtoutiao.com/tech
+  title: 科技微头条
+-
   url: http://norvig.com/
   title: Peter Norvig个人博客
   weight: 0
+-
+  url: http://chuansongme.com/account/luojisw
+  title: 罗辑思维
+-
+  url: http://chuansongme.com/account/laozhoukaijiang
+  title: 老周开讲
 -
   url: http://www.masteringemacs.org/
   title: Mastering Emacs
@@ -13,7 +25,7 @@
   title: 王垠个人博客
 -
   url: http://coolshell.cn/
-  title: 酷壳（陈皓个人博客）
+  title: 酷壳(陈皓个人博客)
 -
   url: http://news.dbanotes.net/
   title: 小道消息
