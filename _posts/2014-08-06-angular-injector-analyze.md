@@ -5,7 +5,7 @@ author: 詹子知(James Zhan)
 date:   2014-08-18 12:00:00
 meta:   版权所有，转载须声明出处
 category: javascript
-tags: [JavaScript, AngularJS]
+tags: [javascript, angular_js]
 ---
 
 ##常用函数说明

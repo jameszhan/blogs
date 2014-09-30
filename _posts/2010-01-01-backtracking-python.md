@@ -5,7 +5,7 @@ author: 詹子知(James Zhan)
 date:   2010-01-01 19:52:00
 meta:   版权所有，转载须声明出处
 category: algorithm
-tags: [算法, Python, 回溯法]
+tags: [algorithm, python, backtracking]
 ---
 
 ### 什么是回溯法

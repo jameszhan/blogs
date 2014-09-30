@@ -5,7 +5,7 @@ author: 詹子知(James Zhan)
 date:   2011-02-14 10:52:00
 meta:   版权所有，转载须声明出处
 category: algorithm
-tags: [算法, Ruby, 回溯法]
+tags: [algorithm, ruby, backtracking]
 ---
 
 ### 什么是回溯法

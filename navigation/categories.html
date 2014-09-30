@@ -8,7 +8,7 @@ permalink: /categories/
 {% for category in site.categories %}
 <div class="box">
     <h2 class="title" id="{{ category[0] }}">
-        <span class="icon-text"><i class="glyphicon glyphicon-tag"></i> {{ category[0] }}</span>
+        <span class="icon-text"><i class="glyphicon glyphicon-tag"></i> {{ category[0] | t }}</span>
     </h2>
     {% assign posts = category[1]%}
     {% include posts %}

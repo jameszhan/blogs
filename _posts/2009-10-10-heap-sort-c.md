@@ -5,7 +5,7 @@ author: 詹子知(James Zhan)
 date:   2009-10-10 17:15:00
 meta:   版权所有，转载须声明出处
 category: algorithm
-tags: [算法, C]
+tags: [algorithm, c]
 ---
 
 1991年计算机先驱奖获得者、斯坦福大学计算机科学系教授罗伯特·弗洛伊德(Robert W．Floyd)和威廉姆斯(J．Williams)在1964年共同发明了著名的堆排序算法(Heap Sort)。

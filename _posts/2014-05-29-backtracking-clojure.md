@@ -5,7 +5,7 @@ author: 詹子知(James Zhan)
 date:   2014-05-29 19:52:00
 meta:   版权所有，转载须声明出处
 category: algorithm
-tags: [算法, Clojure, 回溯法, 函数式编程]
+tags: [algorithm, clojure, backtracking, fp]
 ---
 
 ### 什么是回溯法

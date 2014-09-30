@@ -5,7 +5,7 @@ author: 詹子知(James Zhan)
 date:   2014-08-08 12:00:00
 meta:   版权所有，转载须声明出处
 category: linux
-tags: [Linux, Shell]
+tags: [linux, shell]
 ---
 ##代码示例
 

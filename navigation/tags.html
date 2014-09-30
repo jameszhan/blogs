@@ -8,7 +8,7 @@ permalink: /tags/
 {% for tag in site.tags %}
     <div class="box">
     <h2 class="title" id="{{ tag[0] }}">
-        <span class="icon-text"><i class="glyphicon glyphicon-tag"></i> {{ tag[0] }}</span>
+        <span class="icon-text"><i class="glyphicon glyphicon-tag"></i> {{ tag[0] | t }}</span>
     </h2>
     {% assign posts = tag[1]%}
     {% include posts %}

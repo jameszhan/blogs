@@ -5,7 +5,7 @@ author: 詹子知(James Zhan)
 date:   2014-09-10 12:00:00
 meta:   版权所有，转载须声明出处
 category: pdl
-tags: [Lambda, 函数式编程, Clojure, 程序设计语言]
+tags: [lambda, fp, clojure, pdl]
 ---
 
 λ演算（英语：lambda calculus，λ-calculus）是一套用于研究函数定义、函数应用和递归的形式系统。它由阿隆佐·邱奇和他的学生斯蒂芬·科尔·克莱尼在20世纪30年代引入。这种演算可以用来清晰地定义什么是一个可计算函数。
