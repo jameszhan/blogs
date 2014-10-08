@@ -2,9 +2,11 @@
 *.ipr
 *.iws
 .sass-cache
-_site
-
-_inspired
 
 !_site/categories/*
 !_site/tags/*
+
+_site/*
+
+_inspired
+
