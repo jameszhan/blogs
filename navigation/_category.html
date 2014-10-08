@@ -1,0 +1,13 @@
+---
+layout: navigation
+header: Posts By Category
+group: navigation
+---
+
+<div class="box">
+    <h2 class="title" id="{{ page.name }}">
+        <span class="icon-text"><i class="glyphicon glyphicon-tag"></i> {{ page.name | t }}</span>
+    </h2>
+    {% assign posts = site.categories[page.name] %}
+    {% include posts %}
+</div>
