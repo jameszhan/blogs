@@ -5,6 +5,4 @@
 
 _inspired
 
-_site/*
-!_site/categories
-!_site/tags
+_site/

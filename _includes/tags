@@ -1,7 +1,7 @@
 {% for tag in tags %}
     {% if tag[0] %}
-    <li class="tag"><a href="/tags/#{{ tag[0] }}">{{ tag[0] | t }} <span>{{ tag[1].size }}</span></a></li>
+    <li class="tag"><a href="/tags/{{ tag[0] }}.html">{{ tag[0] | t }} <span>{{ tag[1].size }}</span></a></li>
     {% else %}
-    <li class="tag"><a href="/tags/#{{ tag }}">{{ tag | t }}<span>{{ site.tags[tag].size }}</span></a></li>
+    <li class="tag"><a href="/tags/{{ tag }}.html">{{ tag | t }}<span>{{ site.tags[tag].size }}</span></a></li>
     {% endif %}
 {% endfor %}
