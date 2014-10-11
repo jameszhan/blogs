@@ -45,12 +45,10 @@ module Jekyll
     safe true
 
     def generate(site)
-      dir = site.config['category_dir'] || 'categories'
       site.categories.keys.each do |category|
         write_page(site, category, 'categories', 'sitemap', '_category.html')
       end
-
-      dir = site.config['tag_dir'] || 'tags'
+      
       site.tags.keys.each do |tag|
         write_page(site, tag, 'tags', 'sitemap', '_tag.html')
       end
@@ -61,11 +59,6 @@ module Jekyll
       doc = NamedDocument.new(File.join(site.source, "_#{collection_name}", source_file), { site: site, collection: col, name: name, group: group })
       doc.read
       site.collections['sitemap'].docs << doc
-      #doc = NamedPage.new(site, site.source, dir, name, source_file)
-      #doc.render(site.layouts, site.site_payload)
-      #doc.write(site.dest)
-      #
-      #site.pages << page
     end
 
   end
