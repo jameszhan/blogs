@@ -1,3 +1,4 @@
+{% strip %}
 <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
     <div class="container">
         <div class="navbar-header">
@@ -19,9 +20,10 @@
             {% endfor %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
-            {% for page in sorted_pages %}
-                {% if page.title and page.group == 'popup' %}
-                <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+            {% assign docs = site.collections['sitemap'].docs %}
+            {% for doc in docs %}
+                {% if doc.title %}
+                <li><a class="page-link" href="{{ doc.url | prepend: site.baseurl }}">{{ doc.title }}</a></li>
                 {% endif %}
             {% endfor %}
                 <li><a class="page-link" href="https://github.com/jameszhan">GitHub</a></li>
@@ -29,4 +31,5 @@
         </nav>
     </div>
 </header>
+{% endstrip %}
 

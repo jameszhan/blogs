@@ -19,5 +19,5 @@ redcarpet:
 collections:
     sitemap:
         output: true
-        permalink: /sitemap/:path/
+        permalink: /:group/:name.html
 

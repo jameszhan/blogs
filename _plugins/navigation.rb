@@ -1,25 +1,43 @@
 module Jekyll
-  class NamedPage < Page
+  class NamedDocument < Document
 
-    def initialize(site, base, dir, name, source_file)
-      @site = site
-      @base = base
-      @dir  = dir
-      @name = name
+    attr_reader :name, :group
 
-      process(name)
+    def initialize(path, relations)
+      @name = relations[:name]
+      @group = relations[:group]
+      @site = relations[:site]
+      @path = path
+      @collection = relations[:collection]
+      @has_yaml_header = nil
+    end
 
-      read_yaml(base, source_file)
-
-      data.default_proc = proc do |hash, key|
-        site.frontmatter_defaults.find(File.join(dir, name), :pages, key)
+    def to_liquid
+      if data.is_a?(Hash)
+        Utils.deep_merge_hashes data, {
+            'output'        => output,
+            'content'       => content,
+            'path'          => path,
+            'relative_path' => relative_path,
+            'url'           => url,
+            'collection'    => collection.label,
+            'name'          => name
+        }
+      else
+        data
       end
     end
 
-    # if you want to expose more keys to liquid, you can override the render method.
-    def output_ext
-      '.html'
+    def url_placeholders
+      {
+          collection: collection.label,
+          path:       cleaned_relative_path,
+          output_ext: Jekyll::Renderer.new(site, self).output_ext,
+          name: name,
+          group: group
+      }
     end
+
 
   end
 
@@ -29,20 +47,25 @@ module Jekyll
     def generate(site)
       dir = site.config['category_dir'] || 'categories'
       site.categories.keys.each do |category|
-        write_page(site, dir, category, File.join('_sitemap', '_category.html'))
+        write_page(site, category, 'categories', 'sitemap', '_category.html')
       end
 
       dir = site.config['tag_dir'] || 'tags'
       site.tags.keys.each do |tag|
-        write_page(site, dir, tag, File.join('_sitemap', '_tag.html'))
+        write_page(site, tag, 'tags', 'sitemap', '_tag.html')
       end
     end
 
-    def write_page(site, dir, name, source_file)
-      page = NamedPage.new(site, site.source, dir, name, source_file)
-      page.render(site.layouts, site.site_payload)
-      page.write(site.dest)
-      site.pages << page
+    def write_page(site, name, group, collection_name, source_file)
+      col = site.collections['sitemap']
+      doc = NamedDocument.new(File.join(site.source, "_#{collection_name}", source_file), { site: site, collection: col, name: name, group: group })
+      doc.read
+      site.collections['sitemap'].docs << doc
+      #doc = NamedPage.new(site, site.source, dir, name, source_file)
+      #doc.render(site.layouts, site.site_payload)
+      #doc.write(site.dest)
+      #
+      #site.pages << page
     end
 
   end
