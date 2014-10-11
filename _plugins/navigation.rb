@@ -48,17 +48,17 @@ module Jekyll
       site.categories.keys.each do |category|
         write_page(site, category, 'categories', 'sitemap', '_category.html')
       end
-      
+
       site.tags.keys.each do |tag|
         write_page(site, tag, 'tags', 'sitemap', '_tag.html')
       end
     end
 
     def write_page(site, name, group, collection_name, source_file)
-      col = site.collections['sitemap']
+      col = site.collections[collection_name]
       doc = NamedDocument.new(File.join(site.source, "_#{collection_name}", source_file), { site: site, collection: col, name: name, group: group })
       doc.read
-      site.collections['sitemap'].docs << doc
+      col.docs << doc
     end
 
   end
