@@ -29,12 +29,12 @@ module Jekyll
     def generate(site)
       dir = site.config['category_dir'] || 'categories'
       site.categories.keys.each do |category|
-        write_page(site, dir, category, File.join('_navigation', '_category.html'))
+        write_page(site, dir, category, File.join('_sitemap', '_category.html'))
       end
 
       dir = site.config['tag_dir'] || 'tags'
       site.tags.keys.each do |tag|
-        write_page(site, dir, tag, File.join('_navigation', '_tag.html'))
+        write_page(site, dir, tag, File.join('_sitemap', '_tag.html'))
       end
     end
 
