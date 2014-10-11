@@ -1,5 +1,5 @@
 个人博客
 =======
 
-心路历程
+http://jameszhan.github.io/
 
