@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="{% if page.angularApp %}{{ page.angularApp }}{% else %}app{% endif %}">
+
+{% include head.angular %}
+
+<body>
+
+{% include header.html %}
+
+<div class="container">
+    {{ content }}
+</div>
+
+{% include footer.html %}
+
+</body>
+
+</html>

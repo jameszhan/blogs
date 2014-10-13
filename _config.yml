@@ -21,4 +21,7 @@ collections:
     sitemap:
         output: true
         permalink: /:group/:name.html
+    demos:
+        output: true
+        permalink: /demos/:path.html
 
