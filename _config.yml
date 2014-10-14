@@ -10,7 +10,7 @@ twitter_username: jameszhan
 github_username:  jameszhan
 weibo_username: zizhizhan
 permalink: /:year/:month/:day/:title.html
-exclude: [README.md, Gemfile, Gemfile.lock, LICENSE]
+exclude: [README.md, Gemfile, Gemfile.lock, LICENSE, spm_modules]
 
 # Build settings
 markdown: redcarpet

@@ -2,7 +2,43 @@
 layout: demos
 stylesheets: ['/vendor/assets/stylesheets/fullcalendar/fullcalendar.css', '/vendor/assets/stylesheets/fullcalendar/fullcalendar.print.css']
 scripts:
-    - '/vendor/assets/javascripts/jquery-ui/jquery.ui.core.js'
+    - '/assets/javascripts/calendar.js'
+---
+
+
+<script type="text/javascript">
+
+    seajs.config({
+        base: "/assets/javascripts/modules",
+        paths: {
+            'maxcdn': 'https://maxcdn.bootstrapcdn.com'
+        },
+        alias: {
+            'jquery': 'jquery/jquery/1.11.1/jquery',
+            'jquery-ui': 'jquery/jquery-ui/1.11.1/jquery-ui'
+        }
+    });
+/*
+    define('jquery-ui', function(require, exports, module){
+        var $ = require('jquery');
+        require('/assets/javascripts/modules/jquery/jquery-ui/jquery-ui')($);
+        module.exports = $;
+    });
+*/
+
+    seajs.use(['jquery', 'jquery-ui'], function($, ui){
+        ui($);
+    });
+
+</script>
+
+<div ng-controller="CalendarController">
+    <div class="calendar" ng-model="eventSources" ui-calendar="uiConfig.calendar"></div>
+</div>
+jquery/jquery/1.11.1/jquery-debug
+
+<!--
+     - '/vendor/assets/javascripts/jquery-ui/jquery.ui.core.js'
     - '/vendor/assets/javascripts/jquery-ui/jquery.ui.widget.js'
     - '/vendor/assets/javascripts/jquery-ui/jquery.ui.mouse.js'
     - '/vendor/assets/javascripts/jquery-ui/jquery.ui.draggable.js'
@@ -11,9 +47,4 @@ scripts:
     - '/vendor/assets/javascripts/angular-ui/calendar.js'
     - '/assets/javascripts/modules/lunar.js'
     - '/assets/javascripts/modules/calendar.js'
-    - '/assets/javascripts/calendar.js'
----
-
-<div ng-controller="CalendarController">
-    <div class="calendar" ng-model="eventSources" ui-calendar="uiConfig.calendar"></div>
-</div>
+-->

@@ -11,7 +11,9 @@ tags: [lambda, fp, javascript, java, ruby, clojure, swift, pdl, metaprogramming,
 
 ## 编程语言分类
 
-### 什么是类型？
+编程语言的常见分类是按照类型来分的，比如强类型语言，弱类型语言，静态类型语言，动态类型语言等，要理清编程语言的分类，必须首先弄清楚什么是类型。
+
+### 和类型相关的一些概念
 * Latent typing是一种你不需要在源码中的明确的声明你的变量的类型的类型系统.而与之相反的是manifest typing,它需要你在源码中明确的声明你的变量的类型。
 * Static typing(静态类型)类型系统指的是你的源码中的任何独立的表达式都必须有类型，不管它的类型是直接写在源码中，或者是通过编译器来推断.Dynamic typing(动态类型)是运行时的值才有类型的一种类型系统，因此在它里面程序的表达式能够有任意的类型.
 * overlap 是一种类型推断系统，像haskell和ocaml用的就是overlap,他们是 statically而且还是latently,他们的编译器能够推断出你的变量的类型。 理论上，这里还有另外一种overlap,它是把变量的类型写在源代码中，可是会直到运行时才会检测类型的是否正确. python3000已经被提议使用这种系统，Common Lisp 和Dylan 使用的就是这种系统.
@@ -35,8 +37,7 @@ tags: [lambda, fp, javascript, java, ruby, clojure, swift, pdl, metaprogramming,
 
 什么是脚本语言？
 
-对于脚本语言的看法，我比较赞同王垠同学的观点，有兴趣的同学可以参考[什么是“脚本语言”](http://www.yinwang.org/blog-cn/2013/03/29/scripting-language/)
-
+对于脚本语言和通用语言的看法，我比较赞同王垠同学的观点，有兴趣的同学可以参考[什么是“脚本语言”](http://www.yinwang.org/blog-cn/2013/03/29/scripting-language/)
 
 ## 编程范型
 ![pl_paradigm](http://img2.tbcdn.cn/L1/461/1/c11213395dcfa71224df4e978557790b8059856c)
