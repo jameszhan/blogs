@@ -15,8 +15,9 @@
     <link rel="stylesheet" href="{{ stylesheet }}" />
     {% endfor %}
     {% endif %}
-
     <script type="text/javascript" src="/vendor/assets/javascripts/sea-debug.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/modules/jquery/jquery/1.11.1/jquery.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/modules/jquery/jquery-ui/1.11.1/jquery-ui.js"></script>
     {% if page.scripts %}
     {% for script in page.scripts %}
     <script type="text/javascript" src="{{ script }}"></script>

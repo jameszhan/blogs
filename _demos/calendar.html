@@ -7,7 +7,6 @@ scripts:
 
 
 <script type="text/javascript">
-
     seajs.config({
         base: "/assets/javascripts/modules",
         paths: {
@@ -16,18 +15,12 @@ scripts:
         alias: {
             'jquery': 'jquery/jquery/1.11.1/jquery',
             'jquery-ui': 'jquery/jquery-ui/1.11.1/jquery-ui'
-        }
+        },
+        preload: ["jquery"]
     });
-/*
-    define('jquery-ui', function(require, exports, module){
-        var $ = require('jquery');
-        require('/assets/javascripts/modules/jquery/jquery-ui/jquery-ui')($);
-        module.exports = $;
-    });
-*/
 
     seajs.use(['jquery', 'jquery-ui'], function($, ui){
-        ui($);
+        console.log($);
     });
 
 </script>
@@ -35,7 +28,6 @@ scripts:
 <div ng-controller="CalendarController">
     <div class="calendar" ng-model="eventSources" ui-calendar="uiConfig.calendar"></div>
 </div>
-jquery/jquery/1.11.1/jquery-debug
 
 <!--
      - '/vendor/assets/javascripts/jquery-ui/jquery.ui.core.js'
