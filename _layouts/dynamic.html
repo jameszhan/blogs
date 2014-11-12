@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="/vendor/assets/javascripts/sea-debug.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/modules/jquery/jquery/1.11.1/jquery.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/modules/jquery/jquery-ui/1.11.1/jquery-ui.js"></script>
+</head>
+
+<body>
+
+<div data-include="header"></div>
+
+<div class="container">
+    <div class="col-md-9">
+        {{ content }}
+    </div>
+
+    <div class="col-md-3">
+        <div class="box" data-include="widgets/categories"></div>
+        <div class="box" data-include="widgets/tags"></div>
+    </div>
+</div>
+
+<div data-include="footer"></div>
+
+<script type="text/javascript">
+    seajs.config({
+        base: "/assets/javascripts/modules",
+        paths: {
+            'maxcdn': 'https://maxcdn.bootstrapcdn.com'
+        },
+        alias: {
+            'jquery': 'jquery/jquery/1.11.1/jquery',
+            'jquery-ui': 'jquery/jquery-ui/1.11.1/jquery-ui'
+        },
+        preload: ["jquery"]
+    });
+
+    seajs.use(['jquery', 'jquery-ui'], function($, ui){
+        console.log($);
+    });
+</script>
+
+</body>
+
+</html>

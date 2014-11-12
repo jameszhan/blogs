@@ -44,7 +44,7 @@ tags: [osx, javascript, ruby, php, java]
 * [LightTable](http://lighttable.com/) 一款新出世的编辑器，完全[开源](https://github.com/LightTable/LightTable)，使用Clojure语言编写，非常容易扩展和定制。
 
 ### 浏览器
-* [Chrome](https://www.chromedownload.org) 速度快，调试方便，目前是我开发主要试用的浏览器。
+* [Chrome](https://www.chromedownload.org) 速度快，调试方便，目前是我开发主要使用的浏览器。
 * [Firefox](http://www.firefox.com.cn/) 有点笨重，但是作为开发调试工具还是不错的。
 * **Safari**，系统自带的默认浏览器，和OSX系统集成度高，可以实现在不同的Apple设备之间同步阅读进度。
 * **Opera**，App Store上提供直接下载，小巧，快速。
@@ -160,7 +160,7 @@ gem install sinatra
 我们可以从Oracle官网上去[下载](http://www.oracle.com/technetwork/java/javase/downloads/index.html)JDK的最新版本，目前最新版本是JDK8，建议把JDK7和JDK8都装上，可以在~/.zshrc文件指定JAVA_HOME的路径来切换Java的版本。
 
 ~~~
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_26.jdk/Contents/Home
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
 ~~~
 注意：具体Java版本以你本地安装的版本为准。
@@ -178,6 +178,8 @@ brew install groovy
 brew install grails
 # Scala
 brew install scala
+brew install sbt 
+echo 'SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M -Xmx2G"' >> ~/.sbtconfig
 brew install typesafe-activator
 # Clojure
 brew install leiningen
@@ -198,11 +200,29 @@ brew install node --enable-debug
 ~~~sh
 export NODE_PATH="/usr/local/lib/node_modules/"
 ~~~
+
+##### 常用命令介绍
+~~~sh
+# 查看 npm 安装的内容
+npm list     # 本地
+npm list -g  # 全局
+
+npm outdated [-g] # 查看过期的包（本地或全局）
+npm update [<package>] # 更新全部或特别指定一个包
+npm uninstall <package> # 卸载包
+~~~
+
 ##### 安装常用的组件
 ~~~sh
-npm install express
+npm install -g coffee-script
+npm install -g less
+npm install -g grunt-cli
+npm install -g gulp
+
+npm install -g express
 npm install jquery
 ~~~
+
 
 ##### 开发工具的选择
 1. WebStorm
@@ -222,7 +242,7 @@ brew install spawn-fcgi
 # Start fcgi
 spawn-fcgi -a 127.0.0.1 -p 6666 -C 6 -f /usr/local/bin/php-cgi -u james -d /u/var/run/fcgi -P /u/var/run/fcgi/spawn_fcgi.pid > /dev/null
 ~~~
-更多安装选项可以试用`brew options php56`查看。
+更多安装选项可以使用`brew options php56`查看。
 
 ##### 测试PHP环境
 ###### `Nginx` 配置
@@ -263,9 +283,12 @@ http {
 3. EDITOR (MacVim, Emacs, Sublime) + iTerm
 
 #### 其他编程语言
-如果你是编程语言控，在OS X下你可以很方便地试用各种编程语言。
+如果你是编程语言控，在OS X下你可以很方便地使用各种编程语言。
 
 ~~~sh
+# C++
+alias cppcompile='c++ -std=c++11 -stdlib=libc++'
+
 # install python 2.7
 brew install python
 # install python 3
@@ -355,6 +378,37 @@ sudo /System/Library/Extensions/TMSafetyNet.kext/Contents/Helpers/bypass find . 
 
 ### 视频格式转换
 
+在Windows下，我们有很多视频格式转换的工具，尽管良莠不齐，但是只要有耐心，总是可以达到转换的要求，在OS X下，App Store上也可以找到一些转码工具，但是一般都价格不菲。事实上，绝大部分视频转码工具底层都用到了FFmpeg，而FFmpeg是完全开源和免费的，既然如此，我们为何不直接使用ffmpeg来进行视音频的转码处理呢。
+
+~~~sh
+# 查看ffmpeg的安装选项，可以按照你自己的要求选装
+brew info ffmpeg
+
+# 安装FFmpeg
+brew install ffmpeg --with-fdk-aac --without-faac
+
+#列出支持的编解码器
+ffmpeg -codecs
+
+#列出支持的滤镜
+ffmpeg -filters
+ 
+#列出支持的格式
+ffmpeg -formats
+
+# 把光驱DVD格式文件转成MP4格式
+cat VIDEO_TS.VOB VTS_01_0.VOB VTS_01_1.VOB VTS_01_2.VOB | ffmpeg -i - ~/mika_01.mp4
+
+# 抽取flv视频中的音频
+ffmpeg -i INPUT.flv -acodec libmp3lame -ab 128k OUTPUT.mp3
+
+# 把AVI格式转换成MP4格式
+ffmpeg -i INPUT.avi -f mp4 -vcodec mpeg4 -maxrate 1000 -b 700 -qmin 3 -qmax 5 -bufsize 4096 -g 300 -acodec aac -ab 192 -s 320x240 -aspect 4:3 OUTPUT.mp4 
+~~~
+
+
+注：FFmpeg是一个开源免费跨平台的视频和音频流方案，属于自由软件，采用LGPL或GPL许可证（依据你选择的组件）。它提供了录制、转换以及流化音视频的完整解决方案。
+
 
 ### Extended Attributes (EAs)
 当我们使用`ls -l`查看文件目录时，细心的同学会发现有些文件的ACL后面都多一个@，这个就是我们这节要讨论的扩展属性。  
@@ -402,7 +456,7 @@ find . -type d -empty -delete -print
 find . -type f -size +100000k 
 find . -type f -size +100000k -exec ls -lh {} \; | awk '{ print $5 " => " $9 " " $10 }' 
 
-# 试用tail实时监控日志
+# 使用tail实时监控日志
 tail -fn 500 /var/log/messages #参数-f使tail不停地去读最新的内容，这样有实时监视的效果
 
 # 分割和合并文件
