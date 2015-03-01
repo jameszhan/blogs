@@ -570,7 +570,7 @@ cat .git/refs/heads/master 	# 2d1d4a124abb2c8283f1bb2d3a361c70cb4b3152
 
 ##### merge
 
-```
+```sh
 git merge master
 
 git log --pretty=oneline
