@@ -1,47 +1,35 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <script type="text/javascript" src="/vendor/assets/javascripts/sea-debug.js"></script>
-    <script type="text/javascript" src="/assets/javascripts/modules/jquery/jquery/1.11.1/jquery.js"></script>
-    <script type="text/javascript" src="/assets/javascripts/modules/jquery/jquery-ui/1.11.1/jquery-ui.js"></script>
+    {% include head.html %}
 </head>
-
 <body>
 
-<div data-include="header"></div>
+<header class="navbar navbar-inverse navbar-fixed-top" role="banner" data-include="/assets/tpls/header.tpl"></header>
 
 <div class="container">
     <div class="col-md-9">
         {{ content }}
+        <div data-include="/assets/tpls/widgets/comments.tpl"></div>
     </div>
 
     <div class="col-md-3">
-        <div class="box" data-include="widgets/categories"></div>
-        <div class="box" data-include="widgets/tags"></div>
+        {% include sidebar %}
     </div>
 </div>
 
-<div data-include="footer"></div>
+<div class="container" data-include="/assets/tpls/footer.tpl"></div>
 
-<script type="text/javascript">
-    seajs.config({
-        base: "/assets/javascripts/modules",
-        paths: {
-            'maxcdn': 'https://maxcdn.bootstrapcdn.com'
-        },
-        alias: {
-            'jquery': 'jquery/jquery/1.11.1/jquery',
-            'jquery-ui': 'jquery/jquery-ui/1.11.1/jquery-ui'
-        },
-        preload: ["jquery"]
-    });
+<div class="modal fade" id="globalModal" tabindex="-1" role="dialog" aria-labelledby="globalModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
 
-    seajs.use(['jquery', 'jquery-ui'], function($, ui){
-        console.log($);
-    });
-</script>
-
+<script type="text/javascript" src="/assets/javascripts/firing.js"></script>
+<div class="analytics">
+    <script type="text/javascript" src="/assets/javascripts/analytics.js"></script>
+</div>
 </body>
-
 </html>

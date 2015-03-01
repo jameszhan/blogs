@@ -26,5 +26,5 @@ collections:
         permalink: /demos/:path.html
     tpls:
         output: true
-        permalink: /assets/templates/:path.tpl
+        permalink: /assets/tpls/:path.tpl
 
