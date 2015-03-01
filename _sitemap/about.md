@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: navigation
 title: 关于我
 group: popup
 permalink: /about/
