@@ -4,8 +4,8 @@ title:  树莓派连接无线网络
 author: 詹子知(James Zhan)
 date:   2015-03-02 15:00:00
 meta:   版权所有，转载须声明出处
-category: raspberry
-tags: [raspberry, linux, hardware, wifi]
+category: raspberrypi
+tags: [raspberrypi, linux, hardware, wifi]
 ---
 
 尽管树莓派非常小，但是如果不能连接无线网络，那么它的移动性将大打折扣，因为它必须需要一根网线直接连接路由器。下面本文就介绍一下如何让树莓派连接无线网络。

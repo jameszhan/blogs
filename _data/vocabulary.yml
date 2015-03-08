@@ -10,5 +10,6 @@ github: GitHub
 javascript: JavaScript
 osx: OS X
 angular_js: AngularJS
-raspberry: 树莓派
+raspberrypi: 树莓派
 wifi: WiFi
+time_capsule: Time Capsule

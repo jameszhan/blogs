@@ -4,8 +4,8 @@ title:  树莓派初次启动实战
 author: 詹子知(James Zhan)
 date:   2015-03-01 10:00:00
 meta:   版权所有，转载须声明出处
-category: raspberry
-tags: [raspberry, linux, hardware]
+category: raspberrypi
+tags: [raspberrypi, linux, hardware]
 ---
 
 ## 准备工作
@@ -127,7 +127,7 @@ sudo apt-get -y upgrade
 sudo apt-get -y dist-upgrade
 ```
 
-如果apt-get很慢的话，不妨修改`/etc/apt/sources.list`，换一个[镜像](http://www.raspbian.org/RaspbianMirrors)。
+如果apt-get很慢的话，不妨修改`/etc/apt/sources.list`，换一个**[镜像](http://www.raspbian.org/RaspbianMirrors)**。
 
 在更新过程中，如果碰到 `Hash Sum Mismatch` 错误，那么恭喜你中奖了，这个问题也困扰了我一整天，查了Google也找不到比较靠谱的解决方案。这个问题之所以会产生，是因为你所使用的网络供应商，有些会设置一些透明缓存，以增加网络内部速度，减少出口的流量，你获取的某些文件不是源服务器上的真正文件，是从缓存中获取的，当缓存中获取的一些校验信息跟源中不一致的时候，自然提示校验失败，无法继续更新。
 
