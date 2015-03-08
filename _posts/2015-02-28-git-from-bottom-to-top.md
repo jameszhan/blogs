@@ -2,7 +2,7 @@
 layout: post
 title:  当执行Git命令时，Git做了什么
 author: 詹子知(James Zhan)
-date:   2015-2-28 18:00:00
+date:   2015-2-28 12:00:00
 meta:   版权所有，转载须声明出处
 category: github
 tags: [git, shell, github]
