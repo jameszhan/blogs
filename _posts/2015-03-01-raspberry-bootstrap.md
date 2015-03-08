@@ -137,7 +137,7 @@ sudo apt-get -y dist-upgrade
 
 解决问题的办法主要有以下2个：
 
-1. 翻墙，或者使用可翻墙的代理。
+1. 翻墙，或者把树莓派连到可翻墙的笔记本。
 2. 第二种方法就比较折腾了。
     + 修改/etc/resolv.conf，新增Google的DNS服务IP。
     
