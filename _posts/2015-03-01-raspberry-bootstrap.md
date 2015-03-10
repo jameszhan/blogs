@@ -153,4 +153,4 @@ sudo apt-get -y dist-upgrade
         sudo apt-get update --fix-missing
         ```
 
-到这里，树莓派的基础配置基本完成，**Take your time and enjoy it！**
+到这里，树莓派的基础配置基本完成，__Take your time and enjoy it！__

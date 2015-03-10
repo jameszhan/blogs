@@ -1,4 +1,13 @@
 # Site settings
+# aginate: 2
+# paginate_path: "page:num"
+# host: 0.0.0.0
+# port: 4000
+# destination: ./_site
+# plugins: ./_plugins
+# layouts: ./_layouts
+# timezone: 'Asia/Shanghai'
+timezone: 'ETC/GMT'
 title: 品码斋
 username: 詹子知
 role: 'Full Stack Engineer'
