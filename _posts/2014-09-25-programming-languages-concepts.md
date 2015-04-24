@@ -5,7 +5,7 @@ author: 詹子知(James Zhan)
 date:   2014-09-25 11:00:00
 meta:   版权所有，转载须声明出处
 category: pdl
-tags: [lambda, fp, javascript, java, ruby, clojure, swift, pdl, metaprogramming, dsl]
+tags: [lambda, fp, javascript, java, ruby, lisp, clojure, swift, pdl, metaprogramming, dsl]
 ---
 
 
@@ -37,7 +37,7 @@ tags: [lambda, fp, javascript, java, ruby, clojure, swift, pdl, metaprogramming,
 
 什么是脚本语言？
 
-对于脚本语言和通用语言的看法，我比较赞同王垠同学的观点，有兴趣的同学可以参考[什么是“脚本语言”](http://www.yinwang.org/blog-cn/2013/03/29/scripting-language/)
+对于脚本语言和通用语言的看法，我比较赞同王垠同学的观点，有兴趣的同学可以参考[什么是“脚本语言”][1]
 
 ## 编程范型
 ![pl_paradigm](http://img2.tbcdn.cn/L1/461/1/c11213395dcfa71224df4e978557790b8059856c)
@@ -75,7 +75,7 @@ LOP是一种面向领域的，高度声明式的编程方式，它的抽象维�
 2. 缺点：需要为其单独开发编译器或解释器
 
 #### 内部的DSL
-例如：[Korma](http://sqlkorma.com/)，[Compojure](https://github.com/weavejester/compojure)
+例如：[Korma][2]，[Compojure][2]
 
 1. 优点：不用单独开发编译器或解释器
 2. 缺点：无法自由设计语法
@@ -144,8 +144,8 @@ lambda calculus 的程序和机器有这样的一一对应关系：一个变量�
 
 关于lambda演算的相关知识，可以参考我之前的2篇文章。
 
-* [Lambda演算之自然数(Clojure描述)](http://jameszhan.github.io/pdl/2014/09/10/lambda-church-number.html)
-* [Lambda演算之Y-Combinator的推导(Clojure描述)](http://jameszhan.github.io/pdl/2014/09/18/lambda-y-combinator.html)
+* [Lambda演算之自然数(Clojure描述)][4]
+* [Lambda演算之Y-Combinator的推导(Clojure描述)][5]
 
 闭包 vs 函数指针?
 
@@ -322,8 +322,6 @@ person2 = Person.new
 puts person2.contact?.address?.city!
 puts person.contact?.address?.city!
 ~~~
-
-
 
 
 ## 元编程与DSL
@@ -650,11 +648,15 @@ end
 * [C++模板元编程](http://pan.baidu.com/s/1gdACzIj) pmcs
 * [Ruby元编程](http://pan.baidu.com/s/1eQEInPg) o3r7
 * [黑客与画家](http://pan.baidu.com/s/1i3gNUPf) e6bu
-* [中文版Apple官方Swift教程](https://github.com/numbbbbb/the-swift-programming-language-in-chinese)
-* [LLVM](http://llvm.org/)
+* [LLVM][6]
+* [中文版Apple官方Swift教程][7]
 
-
-
-
+[1]: http://www.yinwang.org/blog-cn/2013/03/29/scripting-language/ '什么是“脚本语言”'
+[2]: http://sqlkorma.com/ "Korma"
+[3]: https://github.com/weavejester/compojure "Compojure"
+[4]: http://jameszhan.github.io/pdl/2014/09/10/lambda-church-number.html "Lambda演算之自然数"
+[5]: http://jameszhan.github.io/pdl/2014/09/18/lambda-y-combinator.html "Lambda演算之Y-Combinator的推导"
+[6]: http://llvm.org/ "LLVM"
+[7]: https://github.com/numbbbbb/the-swift-programming-language-in-chinese "中文版Apple官方Swift教程"
 
 

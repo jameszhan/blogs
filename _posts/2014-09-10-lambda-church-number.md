@@ -5,7 +5,7 @@ author: 詹子知(James Zhan)
 date:   2014-09-10 12:00:00
 meta:   版权所有，转载须声明出处
 category: pdl
-tags: [lambda, fp, clojure, pdl]
+tags: [lambda, fp, clojure, lisp, pdl]
 ---
 
 λ演算（英语：lambda calculus，λ-calculus）是一套用于研究函数定义、函数应用和递归的形式系统。它由阿隆佐·邱奇和他的学生斯蒂芬·科尔·克莱尼在20世纪30年代引入。这种演算可以用来清晰地定义什么是一个可计算函数。
@@ -72,7 +72,7 @@ tags: [lambda, fp, clojure, pdl]
 ~~~
 是不是简洁了许多，但是不要被表面的简洁所迷惑，lambda演算基于的都是单参数的函数，这样函数可以很方便地得到一致性的处理。如果你使用Haskell来使用上述定义，这不会有什么问题，
 因为其底层本身就是使用currying来描述多参函数的。然而Clojure却是严格区分函数的入参个数的，一旦你使用上述定义，自然数的许多操作将无法很容易地推论得到。事实上，使用currying，
-我们可以很方便地使用单参函数模拟多参函数，但是反过来却不一定。有兴趣的朋友可以参考：[多参描述自然数](https://raw.githubusercontent.com/jameszhan/rhea/master/codes/clojure/calculation/church-number.clj).
+我们可以很方便地使用单参函数模拟多参函数，但是反过来却不一定。有兴趣的朋友可以参考：[多参描述自然数][2].
 
 我们可以根据代数变换的形式得出one, two, three的定义。
 
@@ -199,5 +199,10 @@ two = (succ one)
 
 
 ### 参考
-1. [Lambda演算之Y-Combinator的推导](http://jameszhan.github.io/pdl/2014/09/18/lambda-y-combinator.html)
-2. [lambda演算示例代码](https://raw.githubusercontent.com/jameszhan/rhea/master/codes/clojure/calculation/lambda.clj)
+1. [Lambda演算之Y-Combinator的推导][1]
+2. [相关源代码(多参数版本)][2]
+3. [相关源代码(单参数版本)][3]
+
+[1]: http://jameszhan.github.io/2014/09/18/lambda-y-combinator.html "Lambda演算之Y-Combinator的推导"
+[2]: https://github.com/jameszhan/prototypes/blob/master/lambda/church-number.clj "多参实现源代码"
+[3]: https://github.com/jameszhan/prototypes/blob/master/lambda/lambda.clj "单参实现源代码"

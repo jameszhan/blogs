@@ -27,7 +27,7 @@ f = G(f)
 ~~~
 这表明递归声明涉及找出定点。
 函数G的定点是指满足f=G(f)的f的值。在λ演算中，定点由定点操作符Y来定义。
-具体的推导过程可以参考我的上一篇文章[Y-Combinator的推导](http://jameszhan.github.io/2014/09/18/lambda-y-combinator.html)。
+具体的推导过程可以参考我的上一篇文章[Y-Combinator的推导][2]。
 
 ~~~
 Y = λf.(λx.f(x x))(λx.f(x x))
@@ -98,6 +98,11 @@ console.log(fac(5));
 
 
 ### 参考
-1. [Lambda演算之自然数](http://jameszhan.github.io/pdl/2014/09/10/lambda-church-number.html)
-2. [Lambda演算之Y-Combinator的推导(Clojure描述)](http://jameszhan.github.io/pdl/2014/09/18/lambda-y-combinator.html)
-3. [Y-Combinator相关代码](https://raw.githubusercontent.com/jameszhan/simplifyjs/master/fp/y_combinator_deriving.js)
+
+1. [Lambda演算之自然数][1]
+2. [Y-Combinator的推导(Clojure描述)][2]
+3. [Y-Combinator的推导(JavaScript描述)][3]
+
+[1]: http://jameszhan.github.io/2014/09/10/lambda-church-number.html "Lambda演算之自然数"
+[2]: http://jameszhan.github.io/2014/09/18/lambda-y-combinator.html "Lambda演算之Y-Combinator的推导"
+[3]: http://jameszhan.github.io/2014/09/18/lambda-y-combinator-javascript.html "Y-Combinator的推导(JavaScript版)"

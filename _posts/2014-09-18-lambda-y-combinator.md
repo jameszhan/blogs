@@ -5,7 +5,7 @@ author: 詹子知(James Zhan)
 date:   2014-09-18 12:00:00
 meta:   版权所有，转载须声明出处
 category: pdl
-tags: [lambda, fp, clojure, pdl]
+tags: [lambda, fp, clojure, lisp, pdl]
 ---
 
 
@@ -254,6 +254,6 @@ Y g n  = (λf.(λx.λn.f (x x) n) (λx.λn.f (x x) n)) g n
 
 
 ### 参考
-1. [Lambda演算之自然数](http://jameszhan.github.io/pdl/2014/09/10/lambda-church-number.html)
+1. [Lambda演算之自然数](http://jameszhan.github.io/2014/09/10/lambda-church-number.html)
 2. [y-combinator演算示例代码](https://raw.githubusercontent.com/jameszhan/rhea/master/codes/clojure/calculation/deriving_y_combinator.clj)
 
