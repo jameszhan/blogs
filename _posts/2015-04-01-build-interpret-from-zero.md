@@ -5,7 +5,7 @@ author: 詹子知(James Zhan)
 date:   2015-04-01 23:00:00
 meta:   版权所有，转载须声明出处
 category: pdl
-tags: [lambda, fp, javascript, lisp]
+tags: [lambda, fp, javascript, lisp, compiler, interpreter]
 ---
 
 在编写Interpreter之前，我们需要先了解Lexer（词法分析器），Parser（语法解析器），AST（抽象语法树）。
