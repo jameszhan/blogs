@@ -5,4 +5,4 @@ group: popup
 permalink: /about/
 ---
 
-这家伙很懒，什么都没有留下！
+A language that doesn't affect the way you think about programming, is not worth knowing.
