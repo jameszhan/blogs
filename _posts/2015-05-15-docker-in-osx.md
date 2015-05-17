@@ -94,11 +94,17 @@ docker run -it ubuntu bash
 启动Nginx容器
 
 ```sh
-docker run -d -P --name web nginx
+docker run -d -p 80:80 --name web nginx
+
+#可以使用如下命令来测试当前的Nginx容器
+curl -I `boot2docker ip`
 ```
 
 可以使用 `docker ps` 来查看当前活跃的进程，可以使用 `docker stop web` 来结束指定容器，或者使用 `docker rm web` 来删除指定容器。
 
+### 参考资料
 
+1. [Docker从入门到实践][2]
 
 [1]: https://www.virtualbox.org/ "VirtualBox" 
+[2]: http://dockerpool.com/static/books/docker_practice/index.html "Docker从入门到实践"
