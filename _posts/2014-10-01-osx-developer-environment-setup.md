@@ -30,7 +30,7 @@ tags: [osx, javascript, ruby, php, java]
 ## 第三方软件
 * [**Adobe Photoshop CS6**][photoshop] 不解释，*OS X* 下体验更佳。
 * [**Parallels Desktop**][parallels] *OS X* 下最好用的虚拟机软件，就是价格比较坑，升级价格和全价差不多，一般 *OS X* 升级，它也会跟着升级。
-* [**VirtualBox**][VritualBox] 虚拟机软件，*Sun* 的遗产，尽管性能一般，不过在 *OS X* 上玩 *Docker* 用的上。
+* [**VirtualBox**][virtualbox] 虚拟机软件，*Sun* 的遗产，尽管性能一般，不过在 *OS X* 上玩 *Docker* 用的上。
 * [**Axure RP**][axure] 比较好用的产品原型设计工具。
 * [**XMind**][xmind] 还可以的一款思维导图工具，完全免费。
 * [**astah professional**][astah] 一款比较专业的UML画图工具。
@@ -64,7 +64,7 @@ tags: [osx, javascript, ruby, php, java]
 * **Dash** 程序员必备，各种编程语言的参考文档，App Store上可以直接下载。
 
     > 尽管看起来没什么技术含量，无非是把各个网站的文档或者语言的帮助文档集中到了一起而已，但是良好的搜索功能及和Alfred的结合能力确实可以大大提高开发人员的效率。
-
+* **SourceTree** 免费的 Git 和 Hg 客户端，App Store上可以直接下载。
 
 ### 开发环境准备
 
