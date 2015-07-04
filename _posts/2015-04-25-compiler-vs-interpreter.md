@@ -4,8 +4,8 @@ title:  "通过实例看解释器和编译器的区别"
 author: 詹子知(James Zhan)
 date:   2015-04-25 23:00:00
 meta:   版权所有，转载须声明出处
-category: pdl
-tags: [javascript, compiler, interpreter]
+category: pdt
+tags: [javascript, compiler, interpreter, pdt]
 ---
 
 本文将通过一个简单例子来对比一下解释器和编译器的区别。

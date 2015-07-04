@@ -4,8 +4,8 @@ title:  "编程语言的一些概念"
 author: 詹子知(James Zhan)
 date:   2014-09-25 11:00:00
 meta:   版权所有，转载须声明出处
-category: pdl
-tags: [lambda, fp, javascript, java, ruby, lisp, clojure, swift, pdl, metaprogramming, dsl]
+category: pdt
+tags: [lambda, fp, javascript, java, ruby, lisp, clojure, swift, pdt, metaprogramming, dsl]
 ---
 
 
