@@ -84,6 +84,7 @@ cat ~/.ssh/id_rsa.pub | ssh root@10.211.55.5 'cat >> ~/.ssh/authorized_keys'    
 ### 自动创建新用户并设置新apt源
 
 ```ruby
+
 host = ARGV[0]
 user = ARGV[1]
 password = ARGV[2]
