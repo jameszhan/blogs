@@ -76,7 +76,7 @@ PermitRootLogin yes
 执行如下代码就可以使得本机root用户登陆Ubuntu不用输入密码。
 
 ```sh
-cat ~/.ssh/id_rsa.pub | ssh root@10.211.55.5 'cat >> ~/.ssh/authorized_keys'                                                                                      14:59:46
+cat ~/.ssh/id_rsa.pub | ssh root@10.211.55.5 'cat >> ~/.ssh/authorized_keys'
 ```
 
 为了安全起见，在设置好root用户本机登陆Ubuntu免输入密码后，可以把`PermitRootLogin`改回原值。
