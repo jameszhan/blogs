@@ -84,8 +84,9 @@ cat ~/.ssh/id_rsa.pub | ssh root@10.211.55.5 'cat >> ~/.ssh/authorized_keys'    
 ### 自动创建新用户并设置新apt源
 
 ```ruby
-user = 'deploy'
-host = '10.211.55.5'
+host = ARGV[0]
+user = ARGV[1]
+password = ARGV[2]
 
 on "root@#{host}", in: :sequence, wait: 5 do
   if test "[ -d /home/#{user} ]"
@@ -369,7 +370,7 @@ apt-get -y install nginx
 # 下载完整的部署脚本
 wget https://raw.githubusercontent.com/jameszhan/prototypes/master/ruby/ubuntu_setup.rb
 
-ruby ubuntu_setup.rb PASSWORD
+ruby ubuntu_setup.rb HOST_IP USERNAME PASSWORD
 ```
 
 
