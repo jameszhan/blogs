@@ -4,7 +4,7 @@ title:  "自动配置Ubuntu开发环境"
 author: 詹子知(James Zhan)
 date:   2013-03-13 22:52:00
 meta:   版权所有，转载须声明出处
-category: algorithm
+category: linux
 tags: [linux, ubuntu, shell]
 ---
 
