@@ -570,7 +570,7 @@ ulimit -a
 [mysqlworkbench]: http://www.mysql.com/products/workbench/ "MySQL Workbench"
 [jetbrains]: http://www.jetbrains.com/ "JetBrains"
 [eclipse]: http://www.eclipse.org/downloads/ "Eclipse"
-[netbeans: https://netbeans.org/ "NetBeans"
+[netbeans]: https://netbeans.org/ "NetBeans"
 [sublime]: http://www.sublimetext.com/ "Sublime Text"
 [macromates]: https://macromates.com/ "TextMate"
 [textmate]: https://github.com/textmate/textmate "TextMate Source"
