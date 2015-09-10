@@ -6,7 +6,6 @@
 _inspired
 
 _site
-_site/
 
 pom.xml
 pom.xml.asc
@@ -22,4 +21,4 @@ pom.xml.asc
 
 spm_modules
 
-
+tmp.*
