@@ -327,7 +327,7 @@ env.define('assert-equals', function(n1, n2){
 3. [Lambda演算之自然数][3]
 4. [lispscript][4]
 
-[1]: https://github.com/jameszhan/prototypes/blob/master/lang/lambda.js "详细源码" 
+[1]: https://github.com/jameszhan/prototypes/blob/master/javascript/lambda/lambda.js "详细源码" 
 [2]: http://zh.wikipedia.org/wiki/%CE%9B%E6%BC%94%E7%AE%97 "Lambda演算百科"
 [3]: http://www.atatech.org/articles/21845 "Lambda演算之自然数"
 [4]: https://github.com/jameszhan/lispscript "lispscript"

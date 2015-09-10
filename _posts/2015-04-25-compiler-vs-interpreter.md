@@ -320,5 +320,5 @@ printAST(parse("(2 + 3) * (5 + 6)"));
 1. [完整源代码][1]
 2. [lispscript][2]
 
-[1]: https://github.com/jameszhan/prototypes/blob/master/lang/compiler_vs_interpreter.js "详细源码" 
+[1]: https://github.com/jameszhan/prototypes/blob/master/javascript/lang/compiler_vs_interpreter.js "详细源码" 
 [2]: https://github.com/jameszhan/lispscript "lispscript"
