@@ -1,12 +1,39 @@
 -
+  url: http://thehackernews.com/
+  title: 国外知名技术分享社区
+-
   url: http://www.36kr.com/
   title: 36氪
+-
+  url: http://drops.wooyun.org/
+  title: 乌云知识库
+－
+  url: http://www.freebuf.com/
+  title: FreeBuf
+-
+  url: http://bluereader.org/
+  title: 深蓝阅读
+-
+  url: http://zhuanlan.zhihu.com/Weekly
+  title: 知乎周刊
+－
+  url: http://toutiao.io/
+  title: 开发者头条
+－
+  url: http://weekly.manong.io/
+  title: 码农周刊
 -
   url: http://chuansongme.com/
   title: 传送门(微信公众账号和文章的导航及推荐)
 -
   url: http://www.wtoutiao.com/tech
   title: 科技微头条
+-
+  url: http://geek.csdn.net/hotest
+  title: 极客头条
+-
+  url: https://news.ycombinator.com/news
+  title: 很多有意思的IDEA
 -
   url: http://norvig.com/
   title: Peter Norvig个人博客
@@ -23,9 +50,6 @@
 -
   url: http://www.ibm.com/developerworks/cn/
   title: IBM developerWorks
--
-  url: http://www.youku.com/show_page/id_z5bdbf57c947311e3b8b7.html
-  title: 罗辑思维视频
 -
   url: http://www.yinwang.org/
   title: 王垠个人博客
@@ -47,5 +71,6 @@
 -
   url: http://blog.fnil.net/
   title: 庄晓丹个人博客
+
 
 
