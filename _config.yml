@@ -22,9 +22,12 @@ permalink: /:year/:month/:day/:title.html
 exclude: [README.md, Gemfile, Gemfile.lock, LICENSE, spm_modules]
 
 # Build settings
-markdown: redcarpet
-redcarpet:
-    extensions: ["fenced_code_blocks", "tables", "highlight", "with_toc_data", "strikethrough", "underline"]
+# markdown: redcarpet
+# redcarpet:
+#    extensions: ["fenced_code_blocks", "tables", "highlight", "with_toc_data", "strikethrough", "underline"]
+
+markdown: kramdown
+highlighter: rouge
 
 collections:
     sitemap:
