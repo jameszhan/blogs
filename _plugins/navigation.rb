@@ -12,6 +12,16 @@ module Jekyll
     def url_placeholders
       @url_placeholders ||= { group: group, name: name, output_ext: Jekyll::Renderer.new(site, self).output_ext }
     end
+
+    def to_liquid
+      if data.is_a?(Hash)
+        Utils.deep_merge_hashes data, 'output' => output, 'content' => content, 'path' => path,
+                                'relative_path' => relative_path, 'url' => url, 'collection' => collection.label,
+                                'name' => name
+      else
+        data
+      end
+    end
   end
 
   class NavGenerator < Generator
