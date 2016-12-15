@@ -14,7 +14,7 @@ role: 'Full Stack Engineer'
 email: zhiqiangzhan@gmail.com
 description: "资深码农，程序设计语言控"
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://jameszhan.github.io" # the base hostname & protocol for your site
+url: "https://jameszhan.github.io" # the base hostname & protocol for your site
 twitter_username: jameszhan
 github_username:  jameszhan
 weibo_username: zizhizhan
