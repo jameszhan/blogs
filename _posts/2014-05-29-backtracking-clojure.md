@@ -49,50 +49,50 @@ tags: [algorithm, clojure, backtracking, fp]
 
 1. 列出全部解空间
 
-    ~~~clojure
-    (defn counter [n, m]
-      (backtrack n m
-        (fn [c k]
-          true)
-        display))                                 
-    ~~~
+~~~clojure
+(defn counter [n, m]
+  (backtrack n m
+    (fn [c k]
+      true)
+    display))                                 
+~~~
 
 2. 实现排列算法
 
-    ~~~clojure
-    (defn permutation [n m]
-      (backtrack n m
-        (fn [c k]
-          (let [a (subvec c 0 k)
-                i (nth c k)]
-            (->> a (filter (partial = i)) empty?)))
-        display))
-    ~~~                                                  
+~~~clojure
+(defn permutation [n m]
+  (backtrack n m
+    (fn [c k]
+      (let [a (subvec c 0 k)
+            i (nth c k)]
+        (->> a (filter (partial = i)) empty?)))
+    display))
+~~~                                                  
 
 3. 实现组合算法  
   
-    ~~~clojure                                                     
-    (defn combination [n m]
-      (backtrack n m
-        (fn [c k]
-          (let [a (subvec c 0 k)
-                i (nth c k)]
-            (->> a (filter (partial <= i)) empty?)))
-        display))
-                                              
-    ~~~
+~~~clojure                                                     
+(defn combination [n m]
+  (backtrack n m
+    (fn [c k]
+      (let [a (subvec c 0 k)
+            i (nth c k)]
+        (->> a (filter (partial <= i)) empty?)))
+    display))
+                                          
+~~~
     
 4. 解决n皇后问题 
 
-    ~~~clojure                                                     
-    (defn nqueue [n]
-      (backtrack n n
-        (fn [c k]
-          (let [a (map #(vector %1 %2) (subvec c 0 k) (range))
-                i (nth c k)]
-            (->> a (filter #(or (= i (nth % 0)) (= (- k (nth % 1)) (abs (- i (nth % 0)))))) empty?)))
-        (fn [c] (println (map #(inc %) c)))))                                              
-    ~~~
+~~~clojure                                                     
+(defn nqueue [n]
+  (backtrack n n
+    (fn [c k]
+      (let [a (map #(vector %1 %2) (subvec c 0 k) (range))
+            i (nth c k)]
+        (->> a (filter #(or (= i (nth % 0)) (= (- k (nth % 1)) (abs (- i (nth % 0)))))) empty?)))
+    (fn [c] (println (map #(inc %) c)))))                                              
+~~~
     
 事实上，回溯法能解决的算法问题远不仅于此，回溯法本质上是穷举法的一种，只要解包含特征：后一个位置的选择依赖于前面的选择状态，我们便可以使用回溯法来实现。尽管回溯法的时间复杂度为n^m，但是由于在搜索解空间树的过程中，很多分支在一早就被剪去了，所以在实际应用过程中，其往往什么高效。
 

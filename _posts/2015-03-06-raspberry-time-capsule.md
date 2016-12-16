@@ -23,7 +23,7 @@ Time Capsule是苹果公司推出的与Mac配合使用的无线硬盘驱动器�
 
 先把移动硬盘插到树莓派USB接口，启动树莓派，并把树莓派接入无线路由器。启动完成后，可以使用如下命令查看硬盘是否已经是否正确接入到USB接口。
 
-```sh
+```bash
 sudo fdisk -l
 #
 # WARNING: GPT (GUID Partition Table) detected on '/dev/sda'! The util fdisk doesn't support GPT. Use GNU Parted.
@@ -51,13 +51,13 @@ sudo blkid
 
 执行如下命令，使得raspbian支持hfs+分区。
 
-```sh
+```bash
 sudo apt-get install hfsplus hfsutils hfsprogs
 ```
 
 挂载hfs+分区。
 
-```sh
+```bash
 sudo mkdir /tm
 sudo chown -R nobody:nogroup /tm
 sudo mount -t hfsplus -o force,rw /dev/sda2 /tm
@@ -74,7 +74,7 @@ Netatalk 是一个免费开源的 AppleTalk 通信协议的实现，Linux 或者
 
 手动安装 netatalk 3，它依赖于avahi-daemon（Avahi 是 Apple’s Zeroconf 协议的开源实现，实现类似 Bonjour 的功能，它可以让你在 Mac 系统里自动发现你的 Linux 计算机）。
 
-```sh
+```bash
 # Remove Netatalk 2
 sudo apt-get --purge remove netatalk
 
@@ -135,7 +135,7 @@ valid users = james
 
 启动 netatalk 服务
 
-```sh
+```bash
 sudo service avahi-daemon restart
 sudo service netatalk restart
 ```

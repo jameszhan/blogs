@@ -74,14 +74,14 @@ tags: [osx, javascript, ruby, php, java]
 #### 安装XCode
 XCode可以直接从App Store上下载和更新，安装完以后，我们需要启动它一次，这个时候它会提示你去接受它的协议。 接下来，我们需要安装Command Line Tool。
 
-~~~sh
+```bash
 xcode-select --install
-~~~
+```
 
 #### 安装oh-my-zsh
 [oh-my-zsh][oh-my-zsh]是一套开源，社区驱动的用于管理zsh配置的框架，可以使用如下的方式安装。
 
-~~~sh
+```bash
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
 # Optionally, backup your existing ~/.zshrc file
@@ -91,97 +91,103 @@ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
 # Set Zsh as your default shell:
 chsh -s /bin/zsh
-~~~
+```
+
 接下来，重启你的命令行就可以发现oh-my-zsh已经配置好了。
 
 如果你想更改zsh的配置，可以编辑~/.zshrc个性化你的配置。
 比如我本地的配置为：
 
-~~~sh
+```bash
 ZSH_THEME="jameszhan"
 plugins=(git svn mvn brew gem go lein npm node rails ruby rvm)
-~~~
+```
     
 #### 安装Homebrew
 [Homebrew][homebrew]是OSX下非常好用的包管理工具，类似于Ubuntu下的apt-get，用于替换OSX下的老牌包管理工具port。
 
-~~~sh
+```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-~~~
+```
 
 ##### 通过Homebrew安装一些实用工具
-~~~sh
+```bash
 brew update
 brew install curl wget tree gnu-sed gawk rename
-~~~
+```
 
 ##### 通过Homebrew安装一些常用服务
-~~~sh
+```bash
 brew update
 brew install redis mysql postgresql mongodb sqlite nginx
-~~~
+```
 
 #### Linux内核调试环境
 
 ##### QEMU
 > [QEMU][qemu]是一套由Fabrice Bellard所编写的以GPL许可证分发源码的模拟处理器，在GNU/Linux平台上使用广泛。。
 
-~~~sh
+```bash
 brew install qemu --with-libssh2 --with-sdl --with-vde
-~~~
+```
 
 ##### Bochs
 > [Bochs][bochs]是一个基于LGPL的开源x86 虚拟机软件（类似于QEMU）。Bochs的CPU指令是完全自己模拟出来的，这种方式的缺点是速度比较慢；优点是具有无以伦比的可移植性：有Gcc的地方就可以有Bochs。甚至已经有了跑在PocketPC上的Bochs。
 
-```sh
-
+```bash
+brew install homebrew/x11/bochs
 ```
 
 
 #### Vim vs. Emacs
-~~~sh
+
+```bash
 # Install MacVim
 brew install macvim --with-cscope --with-lua --override-system-vim
 # Install Emacs
 brew install emacs --cocoa --srgb
-~~~
+```
+
 1. 喜欢Vim的看[这里](http://coolshell.cn/articles/11312.html)。
 2. 喜欢Emacs的看[这里](http://www.masteringemacs.org/)，给个现成的[.emacs.d](https://github.com/purcell/emacs.d)。
 
 #### 准备Ruby开发环境
-##### 安装Ruby
+
+##### 安装ruby
+
 1. 通过[rbenv][rbenv]安装ruby
 
-    ~~~sh
-    brew update
-    brew install rbenv ruby-build
-    rbenv versions
-    rbenv install 2.0.0-p247
-    ~~~
+```bash
+brew update
+brew install rbenv ruby-build
+rbenv versions
+rbenv install 2.0.0-p247
+```
+
 2. 通过[RVM][rvm]安装ruby
 
-    ~~~sh
-    # install rvm on /usr/local/rvm
-    curl -sSL https://get.rvm.io | sudo bash -s stable
-    sudo chown -R YOURNAME:rvm /usr/local/rvm
-    rvm reload
-    rvm list known
-    # Install latest stable ruby version
-    rvm install 2.1.2
-    rvm use 2.1.2 —default
-    
-    # update RVM
-    rvmsudo rvm get stable
-    sudo chown -R YOURNAME:rvm /usr/local/rvm
-    ~~~
+```bash
+# install rvm on /usr/local/rvm
+curl -sSL https://get.rvm.io | sudo bash -s stable
+sudo chown -R YOURNAME:rvm /usr/local/rvm
+rvm reload
+rvm list known
+# Install latest stable ruby version
+rvm install 2.1.2
+rvm use 2.1.2 —default
+
+# update RVM
+rvmsudo rvm get stable
+sudo chown -R YOURNAME:rvm /usr/local/rvm
+```
 
 ##### 安装常用的gem
 
-~~~sh
+```bash
 gem install pry rails bundler --no-ri --no-rdoc
 gem install jekyll
 gem install sinatra
-~~~
+```
     
 ##### 开发工具选择
 1. EDITOR (TextMate, MacVim, Sublime) + iTerm
@@ -189,24 +195,26 @@ gem install sinatra
     
 
 #### 准备Java的开发环境
+
 ##### 安装JDK
 我们可以从Oracle官网上去[下载][jdk]JDK的最新版本，目前最新版本是JDK8，建议把JDK7和JDK8都装上，可以在~/.zshrc文件指定JAVA_HOME的路径来切换Java的版本。
 
-~~~
+```
 #export JAVA_HOME=$(/usr/libexec/java_home -version 1.6)
 export JAVA_HOME=$(/usr/libexec/java_home -version 1.7)
 #export JAVA_HOME=$(/usr/libexec/java_home -version 1.8)
-~~~
+```
 注意：具体Java版本以你本地安装的版本为准。
+
 ##### 安装Maven
 
-~~~sh
+```bash
 brew install maven
-~~~
+```
 
 ##### JVM语言
 
-~~~sh
+```bash
 # Groovy
 brew install groovy
 brew install grails
@@ -217,7 +225,7 @@ echo 'SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=
 brew install typesafe-activator
 # Clojure
 brew install leiningen
-~~~
+```
     
 ##### 开发工具选择
 1. IDE (IntelliJ IDEA, Eclipse, Netbeans)
@@ -226,17 +234,20 @@ brew install leiningen
 #### 准备Node开发环境
 
 ##### 安装node和npm
-~~~sh
+
+```bash
 brew install node --enable-debug
-~~~
+```
 
 ##### 在~/.zshrc配置全局NODE_PATH
-~~~sh
+
+```bash
 export NODE_PATH="/usr/local/lib/node_modules/"
-~~~
+```
 
 ##### 常用命令介绍
-~~~sh
+
+```bash
 # 查看 npm 安装的内容
 npm list     # 本地
 npm list -g  # 全局
@@ -244,10 +255,11 @@ npm list -g  # 全局
 npm outdated [-g] # 查看过期的包（本地或全局）
 npm update [<package>] # 更新全部或特别指定一个包
 npm uninstall <package> # 卸载包
-~~~
+```
 
 ##### 安装常用的组件
-~~~sh
+
+```bash
 npm install -g coffee-script
 npm install -g less
 npm install -g grunt-cli
@@ -255,7 +267,7 @@ npm install -g gulp
 
 npm install -g express
 npm install jquery
-~~~
+```
 
 
 ##### 开发工具的选择
@@ -263,9 +275,10 @@ npm install jquery
 2. EDITOR (MacVim, Sublime, Textmate) + iTerm
 
 #### 搭建PHP开发环境
+
 ##### 安装PHP和启动fcgi
 
-~~~sh
+```bash
 brew tap homebrew/homebrew-php
 # Install php-cgi
 brew reinstall php56 --with-mysql --with-cgi --with-pgsql --with-homebrew-curl --without-pear
@@ -275,12 +288,13 @@ brew install spawn-fcgi
 
 # Start fcgi
 spawn-fcgi -a 127.0.0.1 -p 6666 -C 6 -f /usr/local/bin/php-cgi -u james -d /u/var/run/fcgi -P /u/var/run/fcgi/spawn_fcgi.pid > /dev/null
-~~~
+```
 更多安装选项可以使用`brew options php56`查看。
 
 ##### 测试PHP环境
-###### `Nginx` 配置
-~~~
+
+###### Nginx配置
+```conf
 http {
     upstream fastcgi_server {
         server  127.0.0.1:6666;
@@ -303,13 +317,16 @@ http {
         }
     }
 }
-~~~
-###### 测试页面(`index.php`)
-~~~php
+```
+
+###### 测试页面(index.php)
+
+```php
 <?php
 	phpinfo();
 ?>
-~~~
+```
+
 访问http://localhost/index.php页面即可以查看PHP环境是否搭建成功。
 
 ##### 开发工具的选择
@@ -319,7 +336,7 @@ http {
 #### 其他编程语言
 如果你是编程语言控，在OS X下你可以很方便地使用各种编程语言。
 
-~~~sh
+```bash
 # C++
 alias cppcompile='c++ -std=c++11 -stdlib=libc++'
 
@@ -350,13 +367,14 @@ brew install erlang
 brew install lua
 # Io语言
 brew install io
-~~~
+```
 
 ## 一些实用技巧
+
 ### 挂载硬盘到指定目录
 这里，我们演示如何把第二块硬盘挂载到/opt目录。
 
-~~~sh
+```bash
 # 列出当前所有硬盘信息
 diskutil list
 # diskN 一般代表第N个硬盘，diskNS1一般表示EFI分区信息，diskNS2一般表示我们的目标分区卷。
@@ -370,23 +388,24 @@ diskutil mount -mountPoint /opt/  /dev/disk2s2
 
 # 注意，如果你的硬盘已经挂载到了具体目录，比如/Volumes/HDD，在挂载前，你必须先卸载它。
 diskutil unmount  /dev/disk2s2
-~~~
+```
 
 通过以上的命令，我们确实可以做到把硬盘挂载到具体目录，然后当我们机器重启后，通过刚刚命令修改的配置就会失效。如果我们想固定把硬盘加载到某个目录（尤其当我们第二块硬盘也是内置硬盘）时，又当如何处理呢？事实上，非常简单，执行如下命令，在`fstab`中加入一条记录即可。
 
-~~~sh
+```bash
 sudo vifs
-~~~
+```
+
 我的电脑配置记录如下：
 
-~~~
+```
 UUID=DE74EC97-3EFC-3197-AC0E-AC596773D738 /opt hfs rw 1 0
-~~~
+```
 注意：UUID即为命令`diskutil`查看该卷详情得到的`Volume UUID`，在挂载前，必须保证挂载的目录已经存在.
 
 ### Finder显示默认隐藏的文件
 
-~~~sh
+```bash
 # 显示所有隐藏文件
 defaults write com.apple.finder AppleShowAllFiles -bool YES
 killall Finder
@@ -394,41 +413,42 @@ killall Finder
 # 取消显示所有隐藏文件
 defaults write com.apple.finder AppleShowAllFiles -bool NO
 killall Finder
-~~~ 
+```
 
 ### TimeMachine中命令行操作权限问题
+
 ##### 删除指定的目录
 
-~~~sh
+```bash
 # Before OSX 10.9
 sudo /System/Library/Extensions/TMSafetyNet.kext/Helpers/bypass rm -frv 2011-10-16-232226/Macintosh\ HD/opt/ 
 # After OSX 10.10
 sudo /System/Library/Extensions/TMSafetyNet.kext/Contents/Helpers/bypass rm -frv 2011-10-16-232226/Macintosh\ HD/opt/ 
 # DELETE All .DS_Store
 sudo /System/Library/Extensions/TMSafetyNet.kext/Contents/Helpers/bypass find . -name '.DS_Store' -print -delete
-~~~
+```
+
 重装完系统，特别是在有第二块硬盘的情况下，在使用TimeMachine的时候，会发现整个硬盘很有可能要重新备份，而不是在原来的基础上增量备份，这无疑是对备份空间的巨大浪费，如果你之前已经备份了该磁盘的话，可以强制把TimeMachine中的对应备份强制恢复到该分区即可解决这个问题。
 
 
 ### 多媒体相关
 
-####
 
 #### 视频播放
 
 OS X下免费又好用的视频播放器当属VLC，可以支持几乎所有常用的视频格式。
 
-~~~sh
+```bash
 brew install Caskroom/cask/vlc
 # 或者
 brew cask install vlc
-~~~
+
 
 #### 视频格式转换
 
 在Windows下，我们有很多视频格式转换的工具，尽管良莠不齐，但是只要有耐心，总是可以达到转换的要求，在OS X下，App Store上也可以找到一些转码工具，但是一般都价格不菲。事实上，绝大部分视频转码工具底层都用到了FFmpeg，而FFmpeg是完全开源和免费的，既然如此，我们为何不直接使用ffmpeg来进行视音频的转码处理呢。
 
-~~~sh
+```bash
 # 查看ffmpeg的安装选项，可以按照你自己的要求选装
 brew info ffmpeg
 
@@ -452,7 +472,7 @@ ffmpeg -i INPUT.flv -acodec libmp3lame -ab 128k OUTPUT.mp3
 
 # 把AVI格式转换成MP4格式
 ffmpeg -i INPUT.avi -f mp4 -vcodec mpeg4 -maxrate 1000 -b 700 -qmin 3 -qmax 5 -bufsize 4096 -g 300 -acodec aac -ab 192 -s 320x240 -aspect 4:3 OUTPUT.mp4 
-~~~
+```
 
 
 注：FFmpeg是一个开源免费跨平台的视频和音频流方案，属于自由软件，采用LGPL或GPL许可证（依据你选择的组件）。它提供了录制、转换以及流化音视频的完整解决方案。
@@ -461,32 +481,35 @@ ffmpeg -i INPUT.avi -f mp4 -vcodec mpeg4 -maxrate 1000 -b 700 -qmin 3 -qmax 5 -b
 ### Extended Attributes (EAs)
 当我们使用`ls -l`查看文件目录时，细心的同学会发现有些文件的ACL后面都多一个@，这个就是我们这节要讨论的扩展属性。  
 
-~~~sh
+```bash
 -rw-r--r--@ 1 james  admin     3409417 Oct 21 22:54 CoRD.zip
 -rw-r--r--@ 1 james  admin      755402 Oct 21 22:54 HexFiend.zip
-~~~
+```
+
 在UNIX/Linux当中，文件可以拥有rwx之外的扩展属性，在本例中，测试的几个文件打上了颜色的tag，要查看扩展属性的详情，可以使用命令`ls -l@`查看。
 
-~~~sh
+```bash
 -rw-r--r--@ 1 james  admin     3409417 Oct 21 22:54 CoRD.zip
 	com.apple.FinderInfo	        32
 	com.apple.metadata:_kMDItemUserTags	        53
 -rw-r--r--@ 1 james  admin      755402 Oct 21 22:54 HexFiend.zip
 	com.apple.FinderInfo	        32
 	com.apple.metadata:_kMDItemUserTags	        53
-~~~
+```
+
 可以使用`xattr`命令来操作扩展属性。
 
-~~~sh
+```bash
 xattr -d com.apple.metadata:_kMDItemUserTags CoRD.zip
 xattr -w hello world CoRD.zip
-~~~
+```
+
 `ls -l@ CoRD.zip`结果如下：
 
-~~~sh
+```bash
 -rw-r--r--@ 1 james  admin   3.3M Oct 21 22:54 CoRD.zip
 	hello	   5B
-~~~
+```
 使用`xattr -cr TARGET`可以清空目标文件所有的扩展属性信息，这个对于从TimeMachine拷贝出来的文件批量清除扩展属性特别有效。
 
 另外，在复制文件的过程中，`cp`指定`-X`可以取消复制EAs。
@@ -494,7 +517,7 @@ xattr -w hello world CoRD.zip
 
 ### 常用的命令
 
-~~~sh
+```bash
 # 删除所有.DS_Store文件
 sudo find / -name '.DS_Store' -print -delete
 # 删除当前目录下所有空子目录 
@@ -548,7 +571,7 @@ id
 finger
 uname -a
 ulimit -a
-~~~
+```
 
 
 

@@ -59,66 +59,67 @@ OAuth协议为用户资源的授权提供了一个安全的、开放而又简易
 3. 输入相应的网站注册信息，输入完成后，它会提供给你一段HTML代码。
 4. 把生成后的代码拷贝到你需要评论的页面当中。
 
-    ~~~html
-    <!-- 多说评论框 start -->
-        <div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:"SHORT-NAME"};
-        (function() {
-            var ds = document.createElement('script');
-            ds.type = 'text/javascript';ds.async = true;
-            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-            ds.charset = 'UTF-8';
-            (document.getElementsByTagName('head')[0] 
-             || document.getElementsByTagName('body')[0]).appendChild(ds);
-        })();
-        </script>
-    <!-- 多说公共JS代码 end -->
-    ~~~
-    其中，data-title和data-url的值比较简单，填写文章的标题和真实网址就可以了。
-    关键是data-thread-key的设置，原则上要求对于每一个页面，它的值应该是唯一的，这里我推荐使用相对路径的URL就可以，下面是我本地的例子。
-    
-    ~~~html
-    <div class="ds-thread"
-         data-thread-key="{{page.url}}"
-         data-title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
-         data-url="{{page.url | prepend: site.url}}"></div>
-    ~~~
+~~~html
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"SHORT-NAME"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+~~~
+
+其中，data-title和data-url的值比较简单，填写文章的标题和真实网址就可以了。
+关键是data-thread-key的设置，原则上要求对于每一个页面，它的值应该是唯一的，这里我推荐使用相对路径的URL就可以，下面是我本地的例子。
+
+~~~html
+<div class="ds-thread"
+     data-thread-key="{{page.url}}"
+     data-title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
+     data-url="{{page.url | prepend: site.url}}"></div>
+~~~
 
 5. 去除多说广告内容。
     
-    以下样式使用scss编写。
+以下样式使用scss编写。
     
-    ~~~scss
-    #ds-thread.ds-thread {
-      #ds-reset {
-        .ds-comments-info {
-          .ds-comments-tabs {
-            li.ds-tab {
-              .ds-comments-tab-weibo {
-                display: none;
-              }
-            }
+~~~scss
+#ds-thread.ds-thread {
+  #ds-reset {
+    .ds-comments-info {
+      .ds-comments-tabs {
+        li.ds-tab {
+          .ds-comments-tab-weibo {
+            display: none;
           }
-        }
-        .ds-powered-by {
-          display: none;
         }
       }
     }
-    ~~~
+    .ds-powered-by {
+      display: none;
+    }
+  }
+}
+~~~
 
 6. 禁用默认分享到微博和空间的功能。
 
-    我想很多人都和我一样，很讨厌默认分享的功能，默认多说的分享是勾上的，其实我们只要加入如下的脚本，我们就可以很轻易地去掉默认分享的功能。
-    
-    ~~~javascript
-    $(document).on('click', '#ds-thread textarea[name=message]', function(){
-        $('#ds-sync-checkbox').prop('checked', false);
-    });
-    ~~~
+我想很多人都和我一样，很讨厌默认分享的功能，默认多说的分享是勾上的，其实我们只要加入如下的脚本，我们就可以很轻易地去掉默认分享的功能。
+
+~~~javascript
+$(document).on('click', '#ds-thread textarea[name=message]', function(){
+    $('#ds-sync-checkbox').prop('checked', false);
+});
+~~~
 
 到此，我们的文章评论功能就添加完毕，赶快来尝试一下吧！
 

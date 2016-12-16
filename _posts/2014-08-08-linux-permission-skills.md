@@ -7,47 +7,48 @@ meta:   版权所有，转载须声明出处
 category: linux
 tags: [linux, shell]
 ---
-##代码示例
 
-###直接在远端机器上执行代码
-~~~sh
+## 代码示例
 
+### 直接在远端机器上执行代码
+
+```bash
 ssh ubuntu@10.211.55.13 'ls -l'
-~~~
+```
 
-###登陆远程机器免输入密码
-~~~sh
+### 登陆远程机器免输入密码
 
+```bash
 cat ~/.ssh/id_rsa.pub | ssh ubuntu@10.211.55.13 'cat >> ~/.ssh/authorized_keys'
 
 #下面是Amazon EC2的例子
 cat ~/.ssh/id_rsa.pub | ssh -v -i ~/.ssh/trail.pem ubuntu@ec2-54-241-192-74.us-west-1.compute.amazonaws.com 'cat >> ~/.ssh/authorized_keys'
-~~~
+```
 对于自己的专属电脑来说，每次sudo输入密码确实非常啰嗦，尤其是在编写远程部署脚本时，更是遍地是坑
 
-###sudo免输入密码
-~~~sh
+### sudo免输入密码
 
+```bash
 #在/etc/sudoers中更改用户相应的条目如下即可
 ubuntu ALL=(ALL) NOPASSWD:ALL
 james ALL=(ALL) NOPASSWD:ALL
-~~~
+```
 
-###添加sudo免输密码用户
-~~~sh
+### 添加sudo免输密码用户
 
+```bash
 adduser deploy --ingroup admin
 #添加以下内容到/etc/sudoers
 deploy ALL=(ALL) NOPASSWD: ALL
-~~~
+```
 
-##关键文件详解
+## 关键文件详解
 
 用户，组及权限控制的信息主要和/etc/sudoers，/etc/passwd，/etc/shadow，/etc/group几个文件相关，可以使用id，finger查看用户信息。
 
-####/etc/sudoers
-~~~sh
+#### /etc/sudoers
 
+```bash
 #常见格式规范
 # User privilege specification
 root ALL=(ALL)      ALL
@@ -61,12 +62,12 @@ root ALL=(ALL)      ALL
 
 %users ALL=(root) /sbin/mount /cdrom,/sbin/umount /cdrom
 %users localhost=(ALL) NOPASSWD:/sbin/shutdown -h now
-~~~
+```
 
 
-####/etc/passwd
-~~~sh
+#### /etc/passwd
 
+```bash
 ubuntu:x:1001:27:Ubuntu,,,:/home/ubuntu:/bin/bash
 
 # ubuntu => 用户名
@@ -76,11 +77,11 @@ ubuntu:x:1001:27:Ubuntu,,,:/home/ubuntu:/bin/bash
 # Ubuntu,,, => finger inform, 记录用户的相关信息，比如公司，地区等
 # /home/ubuntu => 用户Home目录
 # /bin/bash => 该用户使用bash shell的路径.如果是 /sbin/nologin,表示无法登陆系统,只能以FTP形式登录; 如果是 /bin/false,则表示只能发邮件.
-~~~
+```
 
-####/etc/shadow
-~~~sh
+#### /etc/shadow
 
+```sh
 ubuntu:$6$9M43z06q$w/Q8D7pD7a/JNJKaI2jmcrNmumMHBu8poxU6VYzWFDac7FhtDspeaOLlKmEkgOGRRDW.Sxcow8kwzp7hGtUGf.:15758:0:99999:7:6:5:
 
 #ubuntu => 用户名
@@ -92,16 +93,16 @@ ubuntu:$6$9M43z06q$w/Q8D7pD7a/JNJKaI2jmcrNmumMHBu8poxU6VYzWFDac7FhtDspeaOLlKmEkg
 #6 => 密码到期日起的6天后,如果该用户仍未变更密码,则该账户将被锁定 (默认留空)
 #5 => 帐号到期日,以1970年1月1日开始计算,5天后账户锁定,此处表示的锁定日为1970便1月6日. (默认留空)
 #最后一个(:后) => 是为了以后的新开发项做准备的
-~~~
+```
 
 
-####/etc/group
-~~~sh
+#### /etc/group
 
+```bash
 sudo:x:27:james
 
 #sudo => 用户组名
 #x => 表示该用户组登录需要密码,若此出无x,则表示该用户组登录时不需要密码
 #27 => 用户组ID ( gid)
 #james => 这个用户组中的成员 ( 此处可多个,用户名之间用逗号隔开)
-~~~
+```

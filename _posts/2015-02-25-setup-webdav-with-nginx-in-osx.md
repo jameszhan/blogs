@@ -15,18 +15,26 @@ tags: [webdav, nginx, osx]
 
 最新的Nginx已经默认支持了webdav模块了，但是支持并不完善，对于PROPFIND OPTIONS还不支持，必须安装[WebDAV的扩展模块][nginx-dav-ext-module]。
 
-```sh
+```bash
 git clone https://github.com/arut/nginx-dav-ext-module.git /tmp/nginx-dav-ext-module
 ```
 
 #### 手动编译和安装Nginx
 
-```sh
+```bash
 wget http://nginx.org/download/nginx-1.8.0.tar.gz --directory-prefix=/tmp/
 cd /tmp && tar -xzf nginx-1.8.0.tar.gz
 cd /tmp/nginx-1.8.0
 ./configure --prefix=/usr/local/nginx --add-module=/tmp/nginx-dav-ext-module --with-http_ssl_module --with-pcre --with-ipv6 --sbin-path=/usr/local/nginx/bin/nginx --conf-path=/usr/local/etc/nginx/nginx.conf --pid-path=/usr/local/var/run/nginx.pid --lock-path=/usr/local/var/run/nginx.lock --http-client-body-temp-path=/usr/local/var/run/nginx/client_body_temp --http-proxy-temp-path=/usr/local/var/run/nginx/proxy_temp --http-fastcgi-temp-path=/usr/local/var/run/nginx/fastcgi_temp --http-uwsgi-temp-path=/usr/local/var/run/nginx/uwsgi_temp --http-scgi-temp-path=/usr/local/var/run/nginx/scgi_temp --http-log-path=/usr/local/var/log/nginx/access.log --error-log-path=/usr/local/var/log/nginx/error.log --with-http_gzip_static_module --with-http_dav_module --with-debug --with-http_gunzip_module
 make && make install
+```
+
+#### 通过Homebrew安装nginx-full
+
+```bash
+brew unlink nginx
+brew tap homebrew/nginx
+brew install nginx-full --with-debug --with-gunzip ---with-http2 --with-passenger --with-webdav --with-dav-ext-module
 ```
 
 #### 通过Homebrew安装Nginx
@@ -58,7 +66,7 @@ args = %W[
 ```
 
 
-```sh
+```bash
 brew install nginx --with-debug --with-gunzip --with-libressl --with-passenger --with-spdy --with-webdav
 ```
 
@@ -71,6 +79,7 @@ brew install nginx --with-debug --with-gunzip --with-libressl --with-passenger -
 htpasswd -c /u/etc/nginx/user.passwd admin
 htpasswd /u/etc/nginx/user.passwd james
 htpasswd /u/etc/nginx/user.passwd guest
+
 ```
 
 #### 在配置文件`/usr/local/etc/nginx/nginx.conf`加入如下配置：
@@ -99,7 +108,7 @@ server {
 
 #### 启动Nginx
 
-```
+```bash
 nginx
 ```
 
@@ -107,8 +116,10 @@ nginx
 
 #### 作为静态文件服务器
 
-```sh
+```bash
 open -a "Google Chrome" http://127.0.0.1:9876/index.html
+
+cadaver http://127.0.0.1:9876
 ```
 
 #### 作为网盘

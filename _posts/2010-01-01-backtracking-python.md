@@ -70,46 +70,46 @@ def backtracking(n, m, check, handle):
 
 1. 列出全部解空间
 
-    ~~~python
-    def counter(n, m):
-        backtracking(n, m, lambda a, k: True, lambda a: print(a))                                   
-    ~~~
+~~~python
+def counter(n, m):
+    backtracking(n, m, lambda a, k: True, lambda a: print(a))                                   
+~~~
 
 2. 实现排列算法
 
-    ~~~python
-    def permutation(n, m):
-        def check(a, k):
-            for i in range(k):
-                if a[i] == a[k]:
-                    return False
-            return True
-        backtracking(n, m, check, display)
-    ~~~                                                  
+~~~python
+def permutation(n, m):
+    def check(a, k):
+        for i in range(k):
+            if a[i] == a[k]:
+                return False
+        return True
+    backtracking(n, m, check, display)
+~~~                                                  
 
 3. 实现组合算法  
   
-    ~~~python                                                     
-    def combination(n, m):
-        def check(a, k):
-            for i in range(k):
-                if a[i] >= a[k]:
-                    return False
-            return True
-        backtracking(n, m, check, display)                                                 
-    ~~~
+~~~python                                                     
+def combination(n, m):
+    def check(a, k):
+        for i in range(k):
+            if a[i] >= a[k]:
+                return False
+        return True
+    backtracking(n, m, check, display)                                                 
+~~~
     
 4. 解决n皇后问题 
 
-    ~~~python                                                     
-    def nqueen(n):
-        def check(a, k):
-            for i in range(k):
-                if a[i] == a[k] or abs(a[i] - a[k]) == k - i:
-                    return False
-            return True
-        backtracking(n, n, check, lambda a: print(a))                                                 
-    ~~~
+~~~python                                                     
+def nqueen(n):
+    def check(a, k):
+        for i in range(k):
+            if a[i] == a[k] or abs(a[i] - a[k]) == k - i:
+                return False
+        return True
+    backtracking(n, n, check, lambda a: print(a))                                                 
+~~~
     
 事实上，回溯法能解决的算法问题远不仅于此，回溯法本质上是穷举法的一种，只要解包含特征：后一个位置的选择依赖于前面的选择状态，我们便可以使用回溯法来实现。尽管回溯法的时间复杂度为n^m，但是由于在搜索解空间树的过程中，很多分支在一早就被剪去了，所以在实际应用过程中，其往往十分高效。
 

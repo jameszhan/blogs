@@ -79,67 +79,67 @@ end
 
 1. 列出全部解空间
 
-    ~~~ruby
-    def counter(n, m, &handle)             
-      handle = DISPLAY unless handle       
-      backtrace(n, m, handle) do |a, k|    
-        true                               
-      end                                  
-    end                                    
-    ~~~
+~~~ruby
+def counter(n, m, &handle)             
+  handle = DISPLAY unless handle       
+  backtrace(n, m, handle) do |a, k|    
+    true                               
+  end                                  
+end                                    
+~~~
 
 2. 实现排列算法
 
-    ~~~ruby
-    def permutation(n, m, &handle)                       
-      handle = DISPLAY unless handle                     
-      backtrack(n, m, handle) do |a, k|                  
-        succ = true                                      
-        for i in (0...k) do                              
-         if a[i] == a[k]                                 
-           succ = false                                  
-           break                                         
-         end                                             
-        end                                              
-        succ                                             
-      end                                                
-    end
-    ~~~                                                  
+~~~ruby
+def permutation(n, m, &handle)                       
+  handle = DISPLAY unless handle                     
+  backtrack(n, m, handle) do |a, k|                  
+    succ = true                                      
+    for i in (0...k) do                              
+     if a[i] == a[k]                                 
+       succ = false                                  
+       break                                         
+     end                                             
+    end                                              
+    succ                                             
+  end                                                
+end
+~~~                                                  
 
 3. 实现组合算法  
   
-    ~~~ruby                                                     
-    def combination(n, m, &handle)                       
-      handle = DISPLAY unless handle                     
-      backtrace(n, m, handle) do |a, k|                  
-        succ = true                                      
-        (0...k).each do |i|                              
-          if a[i] >= a[k]                                
-            succ = false                                 
-            break                                        
-          end                                            
-        end                                              
-        succ                                             
-      end                                                
-    end                                                  
-    ~~~
+~~~ruby                                                     
+def combination(n, m, &handle)                       
+  handle = DISPLAY unless handle                     
+  backtrace(n, m, handle) do |a, k|                  
+    succ = true                                      
+    (0...k).each do |i|                              
+      if a[i] >= a[k]                                
+        succ = false                                 
+        break                                        
+      end                                            
+    end                                              
+    succ                                             
+  end                                                
+end                                                  
+~~~
     
 4. 解决n皇后问题 
 
-    ~~~ruby                                                     
-    def nqueen(n, &handle)                               
-      backtrace(n, n, handle) do |a, k|                  
-        succ = true                                      
-        (0...k).each do |i|                              
-          if a[i] == a[k] || (a[i] - a[k]).abs == k - i  
-            succ = false                                 
-            break                                        
-          end                                            
-        end                                              
-        succ                                             
-      end                                                
-    end                                                  
-    ~~~
+~~~ruby                                                     
+def nqueen(n, &handle)                               
+  backtrace(n, n, handle) do |a, k|                  
+    succ = true                                      
+    (0...k).each do |i|                              
+      if a[i] == a[k] || (a[i] - a[k]).abs == k - i  
+        succ = false                                 
+        break                                        
+      end                                            
+    end                                              
+    succ                                             
+  end                                                
+end                                                  
+~~~
     
 事实上，回溯法能解决的算法问题远不仅于此，回溯法本质上是穷举法的一种，只要解包含特征：后一个位置的选择依赖于前面的选择状态，我们便可以使用回溯法来实现。尽管回溯法的时间复杂度为n^m，但是由于在搜索解空间树的过程中，很多分支在一早就被剪去了，所以在实际应用过程中，其往往十分高效。
 
