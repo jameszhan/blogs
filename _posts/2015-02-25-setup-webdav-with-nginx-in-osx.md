@@ -41,7 +41,7 @@ brew install nginx-full --with-debug --with-gunzip ---with-http2 --with-passenge
 
 在安装前需要修改Homebrew配置文件`/usr/local/Library/Formula/nginx.rb`，在参数中加入nginx-dav-ext-module。
 
-```
+```conf
 args = %W[
     --prefix=#{prefix}
     --with-http_ssl_module
@@ -75,16 +75,15 @@ brew install nginx --with-debug --with-gunzip --with-libressl --with-passenger -
 
 #### 生成auth认证配置文件
 
-```sh
+```bash
 htpasswd -c /u/etc/nginx/user.passwd admin
 htpasswd /u/etc/nginx/user.passwd james
 htpasswd /u/etc/nginx/user.passwd guest
-
 ```
 
 #### 在配置文件`/usr/local/etc/nginx/nginx.conf`加入如下配置：
 
-```
+```conf
 # WebDAV
 server {
     listen 9876;
@@ -118,9 +117,13 @@ nginx
 
 ```bash
 open -a "Google Chrome" http://127.0.0.1:9876/index.html
+```
+或者
 
+```bash
 cadaver http://127.0.0.1:9876
 ```
+
 
 #### 作为网盘
 
