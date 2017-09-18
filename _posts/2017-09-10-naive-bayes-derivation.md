@@ -8,15 +8,15 @@ category: ml
 tags: [ml, mathematics, algorithm]
 ---
 
-### 理论基础
+## 理论基础
 
-#### 联合概率
+### 联合概率
 
 联合概率表示两个事件共同发生的概率。A与B的联合概率表示为$P(AB)$，$P(A,B)$或者$P(A \bigcap B)$。
 
 联合概率可以推广到任意又穷多个事件出现的情况，设（$A_1,A_2,\cdots,A_n$）为任意n个事件（$n\ge2$），事件$A_1,A_2,\cdots,A_n$共同发生的概率记为$P(A_1A_2 \dots A_n)$，$P(A_1,A_2,\dots,A_n)$或者$P(A_1 \bigcap A_2 \bigcap \dots \bigcap A_n)$
 
-#### 条件概率
+### 条件概率
 
 <p>设A，B 是两个事件，且$P(A) > 0$，则称$P(B|A) = \frac{P(AB)}{P(A)}$为在事件A发生的条件下，事件B发生的条件概率。一般地，$P(B|A) \not= P(B)$ ，且它满足以下三条件：（1）非负性；（2）规范性；（3）可列可加性。</p>
 
@@ -28,32 +28,32 @@ tags: [ml, mathematics, algorithm]
 对于一段文本序列$S=w_1,w_2,\cdots,W_T$，它的概率可表示为：
 $$P(S) = P(w_1,w_2,\cdots,W_T) = \prod_{t=1}^T(w_t|w_1 \cdots w_{t-1}) = P(w_1) \cdot P(w_2|w_1) \cdot P(w_3|w_1w_2) \cdots P(w_T|w_1w_2 \cdots w_{T-1})$$
 
-##### Ngram模型
+#### Ngram模型
 
 1.Ngram模型
 
-$$P(w_t|w_1w_2 \cdots w_{t-1}) \approx P(w_t|w_{t-n+1} \cdots w_{t-1})$$
+<span>$$P(w_t|w_1w_2 \cdots w_{t-1}) \approx P(w_t|w_{t-n+1} \cdots w_{t-1})$$</span>
 
 2.bigram
 
-$$P(w_t|w_1w_2 \cdots w_{t-1}) \approx P(w_t|w_{t-1})$$
+<span>$$P(w_t|w_1w_2 \cdots w_{t-1}) \approx P(w_t|w_{t-1})$$</span>
 
 3.trigram
 
-$$P(w_t|w_1w_2 \cdots w_{t-1}) \approx P(w_t|w_{t-1}w_{t-2})$$
+<span>$$P(w_t|w_1w_2 \cdots w_{t-1}) \approx P(w_t|w_{t-1}w_{t-2})$$</span>
 
-##### 独立性假设
+#### 独立性假设
 
-$$P(S) = P(w_1,w_2,\cdots,W_T) \approx \prod_{t=1}^T P(w_t) = P(w_1)P(w_2) \cdots P(w_T)$$
+$$P(S) = P(w_1,w_2,\cdots,w_T) \approx \prod_{t=1}^T P(w_t) = P(w_1)P(w_2) \cdots P(w_T)$$
 
-##### 其他
+#### 其他
 
 $$ 先验概率 = P(原因)；后验概率 = P(原因|结果) $$
 
 $$ P(a,b|c) = \frac{P(a,b,c)}{P(c)} = \frac{P(a,b,c)}{P(b,c)} \cdot \frac{P(b,c)}{P(c)} = P(a|b,c) \cdot P(b|c)$$
 
 
-#### 完备事件组/样本空间的划分
+### 完备事件组/样本空间的划分
 
 设（$A_1,\cdots,A_i,\cdots,A_n$）是一组事件，若
 
@@ -62,11 +62,11 @@ $$ P(a,b|c) = \frac{P(a,b,c)}{P(c)} = \frac{P(a,b,c)}{P(b,c)} \cdot \frac{P(b,c)
 
 则称（$A_1,\cdots,A_i,\cdots,A_n$）是样本空间Ω的一个划分，或称为样本空间Ω 的一个完备事件组。
 
-#### 全概率公式
+### 全概率公式
 
-<p>设（$A_1,\cdots,A_i,\cdots,A_n$）施一个完备事件组，则有$P(B) = \sum_{i=1}^n P(A_i) \cdot P(B|A_i) = \sum_{i=1}^n P(A_iB)$</p>
+<span>设（$A_1,\cdots,A_i,\cdots,A_n$）施一个完备事件组，则有$P(B) = \sum_{i=1}^n P(A_i) \cdot P(B|A_i) = \sum_{i=1}^n P(A_iB)$</span>
 
-#### 贝叶斯公式
+### 贝叶斯公式
 
 设（$A_1,\cdots,A_i,\cdots,A_n$）是一组完备事件组，则有
 $$P(A_i|B) = \frac{PA_iB}{P(B)} = \frac{P(A_i)P(B|A_i)}{\sum_{j=1}^nP(A_j)P(B|A_j)}$$
@@ -74,9 +74,9 @@ $$P(A_i|B) = \frac{PA_iB}{P(B)} = \frac{P(A_i)P(B|A_i)}{\sum_{j=1}^nP(A_j)P(B|A_
 > 根据条件概率和全概率公式，很容易得出贝叶斯公式。
 
 
-### 贝叶斯定理的应用
+## 贝叶斯定理的应用
 
-#### 贝叶斯定理在艾滋病检测上的应用
+### 贝叶斯定理在艾滋病检测上的应用
 
 假设艾滋病在人群中的发病率为万分之一，艾滋病检测假阴性的概率千分之一（假阴性的意思是本来有病应该呈现阳性，但是呈现了阴性）；艾滋病检测假阳性的概率为万分之一（假阳性意思是本来没病应该呈现阴性，但是呈现了阳性）。假设某人在某次检测当中结果呈现阳性，那么他真正感染艾滋病的概率是多少？
 
@@ -111,7 +111,7 @@ print bayes(pT, pfT, pf_T)
 # 0.999899817803
 ```
 
-#### 贝叶斯定理在垃圾邮件过滤上的应用
+### 贝叶斯定理在垃圾邮件过滤上的应用
 
 给定训练集，垃圾邮件和正常邮件各5000封，假定词$w_1$，$w_2$出现的频率如下。
 
@@ -204,7 +204,7 @@ pE2 = joint(pH, pw1H, pw2H) # 5e-07
 print pE1 / (pE1 + pE2) # 0.999798020602
 ```
 
-#### 黑客与画家中的疑问
+### 黑客与画家中的疑问
 
 Paul Graham在他的《黑客与画家》当中，有举过朴素贝叶斯的例子，他的做法是选出区分度最高的15个词，并计算其联合概率，并给出了最终公式。
 
@@ -255,7 +255,26 @@ print e1 / (e1 + e2) # 0.999798020602
 $$ P_{spam|w_1,w_2,\cdots,w_{15}} = \frac{\prod_{i=1}^{15} P_{spam|w_i}}{\prod_{i=1}^{15} P_{spam|w_i} + \prod_{i=1}^{15} (1 - P_{spam|w_i})} $$
 
 
-#### 实战垃圾邮件过滤
+### 实战垃圾邮件过滤
+
+#### 公式推导
+
+给定一个邮件M，它由文本序列$S=w_1,w_2,\ldots,w_n$组成，则给定邮件为垃圾为垃圾邮件的概率为：
+ 
+$$ P(spam|M) = P(spam|w_1,w_2,\cdots,w_n) = \frac{P(w_1,w_2,\cdots,w_n|spam) \cdot P(spam)}{P(w_1,w_2,\ldots,w_n|spam) \cdot P(spam) + P(w_1,w_2,\ldots,w_n|\tilde{spam}) \cdot P(\tilde{spam}) } $$
+
+根据朴素贝叶斯的独立性假设，则有：
+
+$$ P(spam|M) \approx \frac{\prod_{i=1}^n P(w_i|spam)}{\prod_{i=1}^n P(w_i|spam) \cdot P(spam) + \prod_{i=1}^n P(w_i|\tilde{spam}) \cdot P(\tilde{spam}) } $$
+
+#### 概率计算
+
+* 垃圾邮件概率：$P(spam) = \frac{count(mc[spam])}{count(mc[spam]) + count(mc[health])}$
+* 正常邮件概率：$P(\tilde{spam}) = 1 - P(spam)$
+* $w_i$在正常邮件中的概率：<span>$P(w_i|\tilde{spam}) = \frac{count(wc[w_i][health])}{count[mc[health]]}$，也就是 $\frac{w_i关联的正常邮件数量}{正常邮件的数量}$</span>
+* $w_i$在垃圾邮件中的概率：<span>$P(w_i|spam) = \frac{count(wc[w_i][spam])}{count[mc[spam]]}$，也就是 $\frac{w_i关联的垃圾邮件数量}{垃圾邮件的数量}$</span>
+
+#### 代码演示
 
 ```python
 import numpy as np
@@ -287,7 +306,7 @@ class AntiSpam:
         return 1.0
 
     def wprob(self, word, category):
-        return self.wcount(word, category) / sum(self.mc.values())
+        return self.wcount(word, category) / self.mc[category]
 
     def cprob(self, category):
         return float(self.mc[category]) / sum(self.mc.values())

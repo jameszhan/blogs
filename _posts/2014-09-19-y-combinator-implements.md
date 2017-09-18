@@ -5,7 +5,7 @@ author: 詹子知(James Zhan)
 date:   2014-09-19 19:00:00
 meta:   版权所有，转载须声明出处
 category: pdt
-tags: [lambda, fp, javascript, pdt]
+tags: [lambda, fp, javascript, pdt, mathematics]
 ---
 
 ## 递归和定点

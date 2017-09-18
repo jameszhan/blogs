@@ -13,7 +13,7 @@ permalink: /news/
     </h2>
 
     <ul class="listing">
-        {% for link in site.data.news sort_by: 'weight' %}
+        {% for link in site.data.news %}
         <li>
             <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
         </li>

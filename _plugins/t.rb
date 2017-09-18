@@ -6,7 +6,7 @@ module Jekyll
     attr_reader :context, :vocabulary
 
     def t(obj)
-      vocabulary[obj] || obj.respond_to?(:camelcase) ? obj.camelcase : obj
+      vocabulary[obj] || (obj.respond_to?(:camelcase) ? obj.camelcase : obj)
     end
 
     def vocabulary
