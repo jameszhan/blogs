@@ -5,7 +5,7 @@ author: 詹子知(James Zhan)
 date:   2017-09-10 23:00:00
 meta:   版权所有，转载须声明出处
 category: ml
-tags: [ml, mathematics, algorithm]
+tags: [ml, mathematics, algorithm, python]
 ---
 
 ## 理论基础
