@@ -184,7 +184,7 @@ $$ y = f^{'}(x_n)(x - x_{n}) + f(x_n) $$
 
 $$ x = x_n - \frac{f(x_n)}{f^{'}(x_n)} $$
 
-我们可以根据[泰勒公式](https://www.atatech.org/articles/90442)的一阶展开来推导出该公式。
+我们可以根据[泰勒公式](/2017/09/16/taylor-series-derivation.html)的一阶展开来推导出该公式。
 
 $$ f(x) \approx f(x_n) + f^{'}(x_n)(x - x_n) = 0 $$
 
