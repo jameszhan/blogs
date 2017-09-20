@@ -98,7 +98,9 @@ $$ f(x) = f(x_0) + f^{'}(x_0)\Delta x + \frac{1}{2}f^{''}(x_0)\Delta^2 x + a_2\D
 
 同理，可以求得
 
-$$ a_2 = \frac{f(x) - f(x_0) - f^{'}(x_0) \Delta x - \frac{1}{2}f^{''}(x_0)\Delta^2 x}{\Delta^2 x} \implies \lim_{\Delta x \to 0} \frac{a_2}{\Delta x} = \lim_{x \to x_0} \frac{f(x) - f(x_0) - f^{'}(x_0)(x - x_0) - \frac{1}{2}f^{''}(x_0)(x - x_0)^2}{(x - x_0)^3} $$
+$$ a_2 = \frac{f(x) - f(x_0) - f^{'}(x_0) \Delta x - \frac{1}{2}f^{''}(x_0)\Delta^2 x}{\Delta^2 x} $$
+
+$$ \implies \lim_{\Delta x \to 0} \frac{a_2}{\Delta x} = \lim_{x \to x_0} \frac{f(x) - f(x_0) - f^{'}(x_0)(x - x_0) - \frac{1}{2}f^{''}(x_0)(x - x_0)^2}{(x - x_0)^3} $$
 
 连续应用洛必达法则可得：
 

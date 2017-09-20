@@ -108,7 +108,7 @@ def bayes(pT, pfT, pf_T):
 print bayes(pT, pfT, pf_T)
 ```
 
-将数据代入公式，计算得出P(患病|检测为阳性)=49.977%，看起来还是不能确定该被试是否感染艾滋病（被试的感染艾滋病的几率从万分之一上升到近50%）。为了确定被试是否真正感染艾滋病，我们只需再进行一次检测，如果下一次检测还呈阳性，再一次应用贝叶斯定理，则该被试感染艾滋病的几率瞬间提升到99.99%，基本可以确定该被试感染艾滋病了。
+<span>将数据代入公式，计算得出P(患病|检测为阳性)=49.977%，看起来还是不能确定该被试是否感染艾滋病（被试的感染艾滋病的几率从万分之一上升到近50%）。为了确定被试是否真正感染艾滋病，我们只需再进行一次检测，如果下一次检测还呈阳性，再一次应用贝叶斯定理，则该被试感染艾滋病的几率瞬间提升到99.99%，基本可以确定该被试感染艾滋病了。</span>
 
 ```python
 pT = 49.977
@@ -159,7 +159,9 @@ $$ P(垃圾邮件|w_1) = \frac{P(w_1,垃圾邮件)}{P(w_1)} = \frac{250}{250 + 5
 
 $$ P(垃圾邮件|w_1,w_2) = \frac{P(垃圾邮件,w_1,w_2)}{P(w_1,w_2)} $$
 
-$$ P(w_1,w_2) = P(w_1,w_2|垃圾邮件) \cdot P(垃圾邮件) + P(w_1,w_2|正常邮件) \cdot P(正常邮件) = P(w_1,w_2,垃圾邮件) + P(w_1,w_2,正常邮件) $$
+$$ P(w_1,w_2) = P(w_1,w_2|垃圾邮件) \cdot P(垃圾邮件) + P(w_1,w_2|正常邮件) \cdot P(正常邮件) $$
+
+$$ = P(w_1,w_2,垃圾邮件) + P(w_1,w_2,正常邮件) $$
 
 也即：
 
@@ -231,7 +233,9 @@ $$ P_{spam|w_1,w_2} \approx \frac{P_{w_1|spam} \cdot P_{w_2|spam} \cdot P_{spam}
 
 <span>根据贝叶斯公式$P_{w|S} = \frac{P_{S|w} \cdot P_w}{P_S}$，得到：</span>
 
-$$ P_{spam|w_1,w_2} \approx \frac{P_{spam|w_1} \cdot P_{w_1} \cdot P_{spam|w_2} \cdot P_{w_2}}{P_{spam|w_1} \cdot P_{w_1} \cdot P_{spam|w_2} \cdot P_{w_2} + \frac{P_{\tilde{spam}|w_1} \cdot P_{w_1} \cdot P_{\tilde{spam}|w_2} \cdot P_{w_2} \cdot P_{spam}}{P_{\tilde{spam}}}} = \frac{P_{spam|w_1} \cdot P_{spam|w_2}}{P_{spam|w_1} \cdot P_{spam|w_2} + \frac{P_{\tilde{spam}|w_1} \cdot P_{\tilde{spam}|w_2} \cdot P_{spam}}{P_{\tilde{spam}}}} $$
+$$ P_{spam|w_1,w_2} \approx \frac{P_{spam|w_1} \cdot P_{w_1} \cdot P_{spam|w_2} \cdot P_{w_2}}{P_{spam|w_1} \cdot P_{w_1} \cdot P_{spam|w_2} \cdot P_{w_2} + \frac{P_{\tilde{spam}|w_1} \cdot P_{w_1} \cdot P_{\tilde{spam}|w_2} \cdot P_{w_2} \cdot P_{spam}}{P_{\tilde{spam}}}} $$
+
+$$ = \frac{P_{spam|w_1} \cdot P_{spam|w_2}}{P_{spam|w_1} \cdot P_{spam|w_2} + \frac{P_{\tilde{spam}|w_1} \cdot P_{\tilde{spam}|w_2} \cdot P_{spam}}{P_{\tilde{spam}}}} $$
 
 <span>取$P_{spam}=P_{\tilde{spam}}=0.5$，得到：</span>
 
@@ -239,7 +243,9 @@ $$ P_{spam|w_1,w_2} \approx \frac{P_{spam|w_1} \cdot P_{spam|w_2}}{P_{spam|w_1} 
 
 又因为：
 
-$$P_{\tilde{spam}|w} = \frac{P_{w|\tilde{spam}} \cdot P_{\tilde{spam}}}{P_w} = \frac{P_{w|\tilde{spam}} \cdot P_{\tilde{spam}}}{P_{w|\tilde{spam}} \cdot P_{\tilde{spam}} + P_{w|spam} \cdot P_{spam}} = 1 - \frac{P_{w|spam} \cdot P_{spam}}{P_{w|\tilde{spam}} \cdot P_{\tilde{spam}} + P_{w|spam} \cdot P_{spam}} = 1 - P_{spam|w} $$
+$$P_{\tilde{spam}|w} = \frac{P_{w|\tilde{spam}} \cdot P_{\tilde{spam}}}{P_w} = \frac{P_{w|\tilde{spam}} \cdot P_{\tilde{spam}}}{P_{w|\tilde{spam}} \cdot P_{\tilde{spam}} + P_{w|spam} \cdot P_{spam}} $$
+
+$$ = 1 - \frac{P_{w|spam} \cdot P_{spam}}{P_{w|\tilde{spam}} \cdot P_{\tilde{spam}} + P_{w|spam} \cdot P_{spam}} = 1 - P_{spam|w} $$
 
 最终可得：
 
