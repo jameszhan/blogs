@@ -2,7 +2,7 @@
 layout: post
 title:  "梯度下降从放弃到入门"
 author: 詹子知(James Zhan)
-date:   2017-09-17 23:00:00
+date:   2017-10-22 23:00:00
 meta:   版权所有，转载须声明出处
 category: ml
 tags: [ml, mathematics, algorithm, python]
