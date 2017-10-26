@@ -79,10 +79,9 @@ $$ a := a - \alpha \frac{\partial}{\partial a}J(a,b) $$
 $$ b := b - \alpha \frac{\partial}{\partial b}J(a,b) $$
 
 ```python
-def gd(X, Y, alpha = 0.01, epsilon = 1e-8):
+def gd(X, Y, alpha=0.01, epsilon=1e-8):
     m = len(X)
-    a, b = 0, 0
-    sse0 = 0
+    a, b, sse2 = 0, 0, 0
     while True:
         grad_a, grad_b = 0, 0
         for i in range(m):
@@ -96,14 +95,14 @@ def gd(X, Y, alpha = 0.01, epsilon = 1e-8):
         a -= alpha * grad_a
         b -= alpha * grad_b
 
-        sse1 = 0
+        sse = 0
         for j in range(m):
-            sse1 += (a * X[j] + b - Y[j]) ** 2 / (2 * m)
+            sse += (a * X[j] + b - Y[j]) ** 2 / (2 * m)
 
-        if abs(sse0 - sse1) < epsilon:
+        if abs(sse2 - sse) < epsilon:
             break
         else:
-            sse0 = sse1
+            sse2 = sse
     return a, b
 ```
 
@@ -201,10 +200,10 @@ $$
 $$ \theta_j := \theta_j - \alpha \frac{\partial}{\partial\theta_j}J(\theta) $$
 
 ```python
-def gd(X, Y, alpha, epsilon):
+def gd(X, Y, alpha=0.01, epsilon=1e-6):
     m, n = len(X), len(X[0])
     theta = [1 for i in range(n)]
-    sse0, cnt = 0, 0
+    sse2 = 0
     while True:
         gradient = [0 for i in range(n)]
         for j in range(n):
@@ -213,21 +212,20 @@ def gd(X, Y, alpha, epsilon):
                 loss = hypothesis - Y[i]
                 gradient[j] += X[i][j] * loss
             gradient[j] = gradient[j] / m
+            
         for j in range(n):
             theta[j] = theta[j] - alpha * gradient[j]
 
-        sse1 = 0
+        sse = 0
         for i in range(m):
             loss = sum(X[i][jj] * theta[jj] for jj in range(n)) - Y[i]
-            sse1 += loss ** 2
-        sse1 = sse1 / (2 * m)
-        
-        print "[ Epoch {0} ] theta = {1}, gd = {2}, sse = {3})".format(cnt, theta, gradient, sse1)
-        cnt += 1
-        if abs(sse1 - sse0) < epsilon:
+            sse += loss ** 2
+        sse = sse / (2 * m)
+
+        if abs(sse2 - sse) < epsilon:
             break
         else:
-            sse0 = sse1
+            sse2 = sse
     return theta
 ```
 
@@ -378,25 +376,24 @@ $$
 ```python
 import numpy as np
 
-def gd(X, Y, alpha, epsilon):
+def gd(X, Y, alpha=0.01, epsilon=1e-6):
     m, n = np.shape(X)
     theta = np.ones(n)
-    sse0, sse1, cnt = 0, 0, 0
+    sse2 = 0
     Xt = np.transpose(X)
     while True:
         hypothesis = np.dot(X, theta)
         loss = hypothesis - Y
-        gradient = np.dot(Xt, loss) / m
-        theta -= alpha * gradient
-
-        loss2 = np.dot(X, theta) - Y
-        sse1 = sum(l ** 2.0 for l in loss2) / (2 * m)
-        print "[ Epoch {0} ] theta = {1}, gradient = {2}, sse = {3})".format(cnt, theta, gradient, sse1)
-        cnt += 1
-        if abs(sse1 - sse0) < epsilon:
+        
+        sse = np.dot(loss.T, loss) / (2 * m)
+        if abs(sse2 - sse) < epsilon:
             break
         else:
-            sse0 = sse1
+            sse2 = sse
+
+        gradient = np.dot(Xt, loss) / m
+        theta -= alpha * gradient
+        
     return theta
 ```
 
