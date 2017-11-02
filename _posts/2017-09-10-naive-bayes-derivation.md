@@ -26,9 +26,9 @@ tags: [ml, mathematics, algorithm, python]
 上述乘法公式可推广到任意有穷多个事件时的情况。
 <span>设（$A_1,A_2,\cdots,A_n$）为任意n个事件（$n\ge2$）且$P(A_1,A_2,\cdots,A_n)>0$，则$P(A_1A_2 \cdots A_n)=P(A_1)P(A_2|A_1) \cdots P(A_n|A_1A_2 \cdots A_{n-1}) = \prod_{i=1}^n P(A_i|A_1 \cdots A_{i-1})$。</span>
 
-对于一段文本序列$S=w_1,w_2,\cdots,W_T$，它的概率可表示为：
+对于一段文本序列$S=w_1,w_2,\cdots,w_n$，它的概率可表示为：
 
-$$P(S) = P(w_1,w_2,\cdots,W_T) = \prod_{t=1}^T(w_t|w_1 \cdots w_{t-1}) = P(w_1) \cdot P(w_2|w_1) \cdot P(w_3|w_1w_2) \cdots P(w_T|w_1w_2 \cdots w_{T-1})$$
+$$P(S) = P(w_1,w_2,\cdots,w_n) = \prod_{t=1}^n(w_t|w_1 \cdots w_{t-1}) = P(w_1) \cdot P(w_2|w_1) \cdot P(w_3|w_1w_2) \cdots P(w_n|w_1w_2 \cdots w_{n-1})$$
 
 #### Ngram模型
 
@@ -46,7 +46,7 @@ $$P(S) = P(w_1,w_2,\cdots,W_T) = \prod_{t=1}^T(w_t|w_1 \cdots w_{t-1}) = P(w_1) 
 
 #### 独立性假设
 
-$$P(S) = P(w_1,w_2,\cdots,w_T) \approx \prod_{t=1}^T P(w_t) = P(w_1)P(w_2) \cdots P(w_T)$$
+$$P(S) = P(w_1,w_2,\cdots,w_n) \approx \prod_{t=1}^T P(w_t) = P(w_1)P(w_2) \cdots P(w_n)$$
 
 #### 其他
 
@@ -139,7 +139,7 @@ pw1S = 250.0 / 5000 # 0.05
 pw1H = 5.0 / 5000 # 0.001
 ```
 
-根据贝叶斯定理，我们很容易计算$P(垃圾邮件|w_1)$的概率。
+<span>根据贝叶斯定理，我们很容易计算$P(垃圾邮件|w_1)$的概率。</span>
 
 ```python
 def bayes(pS, pwS, pwH):
@@ -225,27 +225,27 @@ $$ P_{spam|w_1,w_2} = \frac{P_{spam|w_1} \cdot P_{spam|w_2}}{P_{spam|w_1} \cdot 
 
 根据贝叶斯定理有：
 
-$$ P_{spam|w_1,w_2} = \frac{P_{w_1,w_2|spam} \cdot P_{spam}}{P_{w_1,w_2}} = \frac{P_{w_1,w_2|spam} \cdot P_{spam}}{P_{w_1,w_2|spam} \cdot P_{spam} + P_{w_1,w_2|\tilde{spam}} \cdot P_{\tilde{spam}}} $$
+$$ P_{spam|w_1,w_2} = \frac{P_{w_1,w_2|spam} \cdot P_{spam}}{P_{w_1,w_2}} = \frac{P_{w_1,w_2|spam} \cdot P_{spam}}{P_{w_1,w_2|spam} \cdot P_{spam} + P_{w_1,w_2|\overline{spam}} \cdot P_{\overline{spam}}} $$
 
 <span>根据独立性假设$P_{w_1,w_2|spam} = P_{w_1|w_2,spam} \cdot P_{w_2|spam} = P_{w_1|spam} \cdot P_{w_2|spam}$，得到：</span>
 
-$$ P_{spam|w_1,w_2} \approx \frac{P_{w_1|spam} \cdot P_{w_2|spam} \cdot P_{spam}}{P_{w_1|spam} \cdot P_{w_2|spam} \cdot P_{spam} + P_{w_1|\tilde{spam}} \cdot P_{w_2|\tilde{spam}} \cdot P_{\tilde{spam}}} $$
+$$ P_{spam|w_1,w_2} \approx \frac{P_{w_1|spam} \cdot P_{w_2|spam} \cdot P_{spam}}{P_{w_1|spam} \cdot P_{w_2|spam} \cdot P_{spam} + P_{w_1|\overline{spam}} \cdot P_{w_2|\overline{spam}} \cdot P_{\overline{spam}}} $$
 
 <span>根据贝叶斯公式$P_{w|S} = \frac{P_{S|w} \cdot P_w}{P_S}$，得到：</span>
 
-$$ P_{spam|w_1,w_2} \approx \frac{P_{spam|w_1} \cdot P_{w_1} \cdot P_{spam|w_2} \cdot P_{w_2}}{P_{spam|w_1} \cdot P_{w_1} \cdot P_{spam|w_2} \cdot P_{w_2} + \frac{P_{\tilde{spam}|w_1} \cdot P_{w_1} \cdot P_{\tilde{spam}|w_2} \cdot P_{w_2} \cdot P_{spam}}{P_{\tilde{spam}}}} $$
+$$ P_{spam|w_1,w_2} \approx \frac{P_{spam|w_1} \cdot P_{w_1} \cdot P_{spam|w_2} \cdot P_{w_2}}{P_{spam|w_1} \cdot P_{w_1} \cdot P_{spam|w_2} \cdot P_{w_2} + \frac{P_{\overline{spam}|w_1} \cdot P_{w_1} \cdot P_{\overline{spam}|w_2} \cdot P_{w_2} \cdot P_{spam}}{P_{\overline{spam}}}} $$
 
-$$ = \frac{P_{spam|w_1} \cdot P_{spam|w_2}}{P_{spam|w_1} \cdot P_{spam|w_2} + \frac{P_{\tilde{spam}|w_1} \cdot P_{\tilde{spam}|w_2} \cdot P_{spam}}{P_{\tilde{spam}}}} $$
+$$ = \frac{P_{spam|w_1} \cdot P_{spam|w_2}}{P_{spam|w_1} \cdot P_{spam|w_2} + \frac{P_{\overline{spam}|w_1} \cdot P_{\overline{spam}|w_2} \cdot P_{spam}}{P_{\overline{spam}}}} $$
 
-<span>取$P_{spam}=P_{\tilde{spam}}=0.5$，得到：</span>
+<span>取$P_{spam}=P_{\overline{spam}}=0.5$，得到：</span>
 
-$$ P_{spam|w_1,w_2} \approx \frac{P_{spam|w_1} \cdot P_{spam|w_2}}{P_{spam|w_1} \cdot P_{spam|w_2} + P_{\tilde{spam}|w_1} \cdot P_{\tilde{spam}|w_2}} $$
+$$ P_{spam|w_1,w_2} \approx \frac{P_{spam|w_1} \cdot P_{spam|w_2}}{P_{spam|w_1} \cdot P_{spam|w_2} + P_{\overline{spam}|w_1} \cdot P_{\overline{spam}|w_2}} $$
 
 又因为：
 
-$$P_{\tilde{spam}|w} = \frac{P_{w|\tilde{spam}} \cdot P_{\tilde{spam}}}{P_w} = \frac{P_{w|\tilde{spam}} \cdot P_{\tilde{spam}}}{P_{w|\tilde{spam}} \cdot P_{\tilde{spam}} + P_{w|spam} \cdot P_{spam}} $$
+$$P_{\overline{spam}|w} = \frac{P_{w|\overline{spam}} \cdot P_{\overline{spam}}}{P_w} = \frac{P_{w|\overline{spam}} \cdot P_{\overline{spam}}}{P_{w|\overline{spam}} \cdot P_{\overline{spam}} + P_{w|spam} \cdot P_{spam}} $$
 
-$$ = 1 - \frac{P_{w|spam} \cdot P_{spam}}{P_{w|\tilde{spam}} \cdot P_{\tilde{spam}} + P_{w|spam} \cdot P_{spam}} = 1 - P_{spam|w} $$
+$$ = 1 - \frac{P_{w|spam} \cdot P_{spam}}{P_{w|\overline{spam}} \cdot P_{\overline{spam}} + P_{w|spam} \cdot P_{spam}} = 1 - P_{spam|w} $$
 
 最终可得：
 
@@ -259,7 +259,7 @@ e2 = pH * (1 - pSw1) * (1 - pSw2)
 print e1 / (e1 + e2) # 0.999798020602
 ```
 
-可见，在$P_{spam}=P_{\tilde{spam}}=0.5$的情况下，结果和之前是一样的。
+可见，在$P_{spam}=P_{\overline{spam}}=0.5$的情况下，结果和之前是一样的。
 
 推广到15个词，就得到：
 
@@ -272,18 +272,40 @@ $$ P_{spam|w_1,w_2,\cdots,w_{15}} = \frac{\prod_{i=1}^{15} P_{spam|w_i}}{\prod_{
 
 给定一个邮件M，它由文本序列$S=w_1,w_2,\ldots,w_n$组成，则给定邮件为垃圾为垃圾邮件的概率为：
  
-$$ P(spam|M) = P(spam|w_1,w_2,\cdots,w_n) = \frac{P(w_1,w_2,\cdots,w_n|spam) \cdot P(spam)}{P(w_1,w_2,\ldots,w_n|spam) \cdot P(spam) + P(w_1,w_2,\ldots,w_n|\tilde{spam}) \cdot P(\tilde{spam}) } $$
+$$ P(spam|M) = P(spam|w_1,w_2,\cdots,w_n) = \frac{P(w_1,w_2,\cdots,w_n|spam) \cdot P(spam)}{P(w_1,w_2,\ldots,w_n|spam) \cdot P(spam) + P(w_1,w_2,\ldots,w_n|\overline{spam}) \cdot P(\overline{spam}) } $$
 
 根据朴素贝叶斯的独立性假设，则有：
 
-$$ P(spam|M) \approx \frac{\prod_{i=1}^n P(w_i|spam)}{\prod_{i=1}^n P(w_i|spam) \cdot P(spam) + \prod_{i=1}^n P(w_i|\tilde{spam}) \cdot P(\tilde{spam}) } $$
+$$ P(spam|M) \approx \frac{\prod_{i=1}^n P(w_i|spam) \cdot P(spam)}{\prod_{i=1}^n P(w_i|spam) \cdot P(spam) + \prod_{i=1}^n P(w_i|\overline{spam}) \cdot P(\overline{spam}) } $$
+
+#### 模型数据
+
+
+
+| category | count |
+| -------- | ----- |
+| spam     | count1|
+| $\overline{spam}$ | count2 |
+
+
+| word | category | count |
+| ---- | -------- | ----- |
+| $w_1$ | spam     | $w_1c_1$ |
+| $w_1$ | $\overline{spam}$ | $w_1c_2$ |
+| $w_2$ | spam     | $w_2c_1$ |
+| $w_2$ | $\overline{spam}$ | $w_2c_2$ |
+| ... | ... | ... |
+| $w_n$ | spam     | $w_nc_1$ |
+| $w_n$ | $\overline{spam}$ | $w_nc_1$ |
+
 
 #### 概率计算
 
-* 垃圾邮件概率：$P(spam) = \frac{count(mc[spam])}{count(mc[spam]) + count(mc[health])}$
-* 正常邮件概率：$P(\tilde{spam}) = 1 - P(spam)$
-* $w_i$在正常邮件中的概率：<span>$P(w_i|\tilde{spam}) = \frac{count(wc[w_i][health])}{count[mc[health]]}$，也就是 $\frac{w_i关联的正常邮件数量}{正常邮件的数量}$</span>
-* $w_i$在垃圾邮件中的概率：<span>$P(w_i|spam) = \frac{count(wc[w_i][spam])}{count[mc[spam]]}$，也就是 $\frac{w_i关联的垃圾邮件数量}{垃圾邮件的数量}$</span>
+* 垃圾邮件概率：$ P(spam) = \frac{count(spam)}{count(spam) + count(\overline{spam})}$
+* 正常邮件概率：$P(\overline{spam}) = 1 - P(spam)$
+* $w_i$在垃圾邮件中的概率：<span>$P(w_i|spam) = \frac{count(w_i,spam)}{count(spam)}$，也就是 $\frac{w_i关联的垃圾邮件数量}{垃圾邮件的数量}$</span>
+* $w_i$在正常邮件中的概率：<span>$P(w_i|\overline{spam}) = \frac{count(w_i,\overline{spam})}{count(\overline{spam})}$，也就是 $\frac{w_i关联的正常邮件数量}{正常邮件的数量}$</span>
+
 
 #### 代码演示
 

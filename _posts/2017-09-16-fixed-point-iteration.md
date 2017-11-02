@@ -150,3 +150,21 @@ $$\lim_{k \to \infty}(x_k - x^{\ast}) = 0$$
 <!-- $\varphi(x) = \frac{5}{x}$的导函数为$\varphi^{'}(x) = -\frac{5}{x^2} < 0$，不满足条件(2)，因此它不收敛。同样$\varphi(x) = \frac{8}{x^2}$的导函数为$\varphi^{'}(x) = -\frac{16}{x^3}$。 -->
 
 
+
+
+| category | count |
+| -------- | ----- |
+| spam     | count1|
+| $\overline{spam}$ | count2 |
+
+<br />
+
+| word | category | count |
+| ---- | -------- | ----- |
+| $w_1$ | spam     | $w_1c_1$ |
+| $w_1$ | $\overline{spam}$ | $w_1c_2$ |
+| $w_2$ | spam     | $w_2c_1$ |
+| $w_2$ | $\overline{spam}$ | $w_2c_2$ |
+| ... | ... | ... |
+| $w_n$ | spam     | $w_nc_1$ |
+| $w_n$ | $\overline{spam}$ | $w_nc_1$ |
