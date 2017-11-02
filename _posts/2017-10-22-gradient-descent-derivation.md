@@ -125,31 +125,18 @@ plt.show()
 
 上例，我们演示了一元线性回归梯度下降的迭代解法，更一般地，我们考虑n个变量的情况，我们有m条记录。
 
-$$
-\begin{bmatrix}{cc|c}
-x_{10} & x_{11} & x_{12} & \cdots & x_{1n} \\
-x_{20} & x_{21} & x_{22} & \cdots & x_{2n} \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-x_{m0} & x_{m1} & x_{m2} & \cdots & x_{mn} \\
-\end{bmatrix} 
-\cdot
-\begin{bmatrix}
-\theta_0    \\
-\theta_1    \\
-\theta_2    \\
-\vdots      \\
-\theta_n    \\
-\end{bmatrix} 
-=
-\begin{bmatrix}
-y_1     \\
-y_2     \\
-\vdots      \\
-y_m     \\
-\end{bmatrix} 
+$$ \left[
+    \begin{array}{ccccc|c}
+x^{(1)}_{0} & x^{(1)}_{1} & x^{(1)}_{2} & \cdots & x^{(1)}_{n} & y^{(1)} \\
+x^{(2)}_{0} & x^{(2)}_{1} & x^{(2)}_{2} & \cdots & x^{(2)}_{n} & y^{(2)} \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+x^{(m)}_{0} & x^{(m)}_{1} & x^{(m)}_{2} & \cdots & x^{(m)}_{n} & y^{(m)} \\
+    \end{array}
+\right]
 $$
 
-<span>为了不失一般性和简化公式，我们令$x_{i0}|_{i \in (1,2,\cdots,m)} = 1$</span>
+
+<span>为了不失一般性和简化公式，我们令 $\left.x_0^{(i)} = 1\right|_{i \in (1,2,\cdots,m)}$ </span>
 
 我们需要找到一个假设$h$，使得应用到上述数据，其代价函数最小。
 
@@ -262,54 +249,39 @@ $$
 LOSS 
 = 
 \begin{bmatrix}
-loss_1 \\
-loss_2 \\
+loss^{(1)} \\
+loss^{(2)} \\
 \vdots \\
-loss_m \\
+loss^{(m)} \\
 \end{bmatrix}
 =
 \begin{bmatrix}
-h_{\theta}(x_1) - y_1 \\
-h_{\theta}(x_2) - y_2 \\
+h_{\theta}(x^{(1)}) - y^{(1)} \\
+h_{\theta}(x^{(2)}) - y^{(2)} \\
 \vdots \\
-h_{\theta}(x_m) - y_m \\
+h_{\theta}(x^{(m)}) - y^{(m)} \\
 \end{bmatrix}
 =
 \begin{bmatrix}
-\sum_{j=0}^nx_{1j}\theta_j \\
-\sum_{j=0}^nx_{2j}\theta_j \\
+\sum_{j=0}^nx^{(1)}_{j}\theta_j \\
+\sum_{j=0}^nx^{(2)}_{j}\theta_j \\
 \vdots \\
-\sum_{j=0}^nx_{mj}\theta_j \\
+\sum_{j=0}^nx^{(m)}_{j}\theta_j \\
 \end{bmatrix}
 -
 \begin{bmatrix}
-y_1 \\
-y_2 \\
+y^{(1)} \\
+y^{(2)} \\
 \vdots \\
-y_m \\
-\end{bmatrix}
-=
-\begin{bmatrix}
-x_{1} \cdot \theta \\
-x_{2} \cdot \theta \\
-\vdots \\
-x_{m} \cdot \theta \\
-\end{bmatrix}
--
-\begin{bmatrix}
-y_1 \\
-y_2 \\
-\vdots \\
-y_m \\
+y^{(m)} \\
 \end{bmatrix}
 $$
 
-$$
-= \begin{bmatrix}
-x_{10} & x_{11} & x_{12} & \cdots & x_{1n} \\
-x_{20} & x_{21} & x_{22} & \cdots & x_{2n} \\
+$$ = \begin{bmatrix}
+x^{(1)}_{0} & x^{(1)}_{1} & x^{(1)}_{2} & \cdots & x^{(1)}_{n} \\
+x^{(2)}_{0} & x^{(2)}_{1} & x^{(2)}_{2} & \cdots & x^{(2)}_{n} \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
-x_{m0} & x_{m1} & x_{m2} & \cdots & x_{mn} \\
+x^{(m)}_{0} & x^{(m)}_{1} & x^{(m)}_{2} & \cdots & x^{(m)}_{n} \\
 \end{bmatrix}
 \cdot
 \begin{bmatrix}
@@ -320,15 +292,13 @@ x_{m0} & x_{m1} & x_{m2} & \cdots & x_{mn} \\
 \end{bmatrix}
 -
 \begin{bmatrix}
-y_0 \\
-y_1 \\
+y^{(1)} \\
+y^{(2)} \\
 \vdots \\
-y_m \\
+y^{(m)} \\
 \end{bmatrix}
 = X \cdot \theta - Y
 $$
-
-
 
 $$ 
 GRADIENT = 
@@ -340,36 +310,37 @@ GRADIENT =
 \end{bmatrix} 
 =
 \begin{bmatrix}
-\sum_{i=1}^m(h_\theta(x_i) - y_i)x_{i0} \\
-\sum_{i=1}^m(h_\theta(x_i) - y_i)x_{i1} \\
+\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)})x^{(i)}_{0} \\
+\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)})x^{(i)}_{1} \\
 \vdots \\
-\sum_{i=1}^m(h_\theta(x_i) - y_i)x_{in} \\
+\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)})x^{(i)}_{n} \\
 \end{bmatrix} 
 =
 \begin{bmatrix}
-\sum_{i=1}^mloss_ix_{i0} \\
-\sum_{i=1}^mloss_ix_{i1} \\
+\sum_{i=1}^mloss^{(i)}x^{(i)}_{0} \\
+\sum_{i=1}^mloss^{(i)}x^{(i)}_{1} \\
 \vdots \\
-\sum_{i=1}^mloss_ix_{in} \\
+\sum_{i=1}^mloss^{(i)}x^{(i)}_{n} \\
 \end{bmatrix} 
 $$
 
 $$ 
 = \begin{bmatrix}
-x_{10} & x_{20} & \cdots & x_{m0} \\
-x_{11} & x_{21} & \cdots & x_{m1} \\
+x^{(1)}_{0} & x^{(2)}_{0} & \cdots & x^{(m)}_{0} \\
+x^{(1)}_{1} & x^{(2)}_{1} & \cdots & x^{(m)}_{1} \\
 \vdots \\
-x_{1n} & x_{2n} & \cdots & x_{mn} \\
+x^{(1)}_{n} & x^{(2)}_{n} & \cdots & x^{(m)}_{n} \\
 \end{bmatrix} 
 \cdot
 \begin{bmatrix}
-loss_1 \\
-loss_2 \\
+loss^{(1)} \\
+loss^{(2)} \\
 \vdots \\
-loss_m \\
-\end{bmatrix} 
+loss^{(m)} \\
+\end{bmatrix}
 = X^T \cdot LOSS
 $$
+
 
 完整代码如下
 
@@ -406,4 +377,40 @@ b, a = gd(X, Y, 0.05, 1e-6)
 
 print 'y = {0} * x + {1}'.format(a, b)
 # y = 0.193953964855 * x + 0.01615274985
+```
+
+### 最终实现
+
+在上面的使用上，我们需要调用方主动为每一个$x_0$赋值为1，其实这一部分完全可以在算法里面实现，简化调用方的使用成本。
+
+```python
+import numpy as np
+
+def gd(X, Y, alpha=0.01, epsilon=1e-8, trace=True):
+    m = len(X)
+    _X = np.column_stack((np.ones(m), X))
+    m, n = np.shape(_X)
+    theta, sse2 = np.ones(n), 0
+    Xt = _X.T
+    while True:
+        loss = np.dot(_X, theta) - Y
+
+        sse = np.dot(loss.T, loss) / (2 * m)
+        if abs(sse - sse2) < epsilon:
+            break
+        else:
+            sse2 = sse
+
+        gradient = np.dot(Xt, loss) / m
+        theta -= alpha * gradient
+    return theta
+```
+
+```python
+X = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+Y = [1.99, 3.89, 5.80, 7.83, 9.80, 11.77, 13.80, 15.75, 17.71]
+
+b, a = gd(X, Y, 0.05, 1e-6)
+
+print 'y = {0} * x + {1}'.format(a, b)
 ```
