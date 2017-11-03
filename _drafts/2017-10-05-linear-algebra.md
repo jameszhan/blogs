@@ -1,4 +1,12 @@
-
+---
+layout: post
+title:  Linear Algebra
+author: 詹子知(James Zhan)
+date:   2015-04-30 23:00:00
+meta:   版权所有，转载须声明出处
+category: mathematics
+tags: [mathematics]
+---
 
 
 
