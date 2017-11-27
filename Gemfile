@@ -1,4 +1,7 @@
-#source 'https://rubygems.org'
-source 'https://ruby.taobao.org/'
+source 'https://gems.ruby-china.org/'
+# source "https://rubygems.org"
 
-gem 'github-pages'
+group :jekyll_plugins do
+  gem 'github-pages'
+  gem 'reset-jekyll-config', '~> 0.1'
+end

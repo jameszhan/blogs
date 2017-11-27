@@ -37,3 +37,5 @@ module Jekyll
 end
 
 Liquid::Template.register_filter(Jekyll::DebugFilter)
+
+puts ">>>(#{__FILE__}) Loaded!"

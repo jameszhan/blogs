@@ -46,3 +46,5 @@ module Jekyll
 
   end
 end
+
+puts ">>>(#{__FILE__}) Loaded!"

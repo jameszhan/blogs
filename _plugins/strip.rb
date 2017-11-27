@@ -9,3 +9,5 @@ module Jekyll
 end
 
 Liquid::Template.register_tag('strip', Jekyll::StripTag)
+
+puts ">>>(#{__FILE__}) Loaded!"
