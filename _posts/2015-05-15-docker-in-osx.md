@@ -5,7 +5,7 @@ author: 詹子知(James Zhan)
 date:   2015-05-15 23:00:00
 meta:   版权所有，转载须声明出处
 category: docker
-tags: [docker, linux, osx]
+tags: [docker, linux, osx, shell]
 ---
 
 ### 安装VirtualBox

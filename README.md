@@ -3,3 +3,9 @@
 
 http://jameszhan.github.io/
 
+
+```bash
+bundle update
+bundle exec jekyll serve
+```
+

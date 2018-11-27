@@ -16,7 +16,7 @@
         <ul class="nav navbar-nav">
         {% assign sorted_pages = site.pages | sort: 'weight' %}
         {% for page in sorted_pages %}
-            {% if page.title and page.group != 'popup' %}
+            {% if page.title and page.name contains ".html" and page.group != 'popup' %}
             <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
             {% endif %}
         {% endfor %}

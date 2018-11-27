@@ -3,8 +3,8 @@ layout: post
 title:  "不同编程语言的代码风格比较"
 author: 詹子知(James Zhan)
 date:   2014-09-16 00:00:00
-category: PDL
-tags: [clojure, codestyle, ruby, javascript, object_model]
+category: pdl
+tags: [clojure, codestyle, ruby, javascript, object_model, pdt]
 ---
 
 ### Clojure代码风格及相关资源

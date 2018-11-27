@@ -4,8 +4,8 @@ title:  定义返回函数指针的函数
 author: 詹子知(James Zhan)
 date:   2008-08-08 17:15:00
 meta:   版权所有，转载须声明出处
-category: PDL
-tags: [c, pdl]
+category: pdl
+tags: [c, pdt]
 ---
 
 ### 基础知识： 

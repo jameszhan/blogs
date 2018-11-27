@@ -4,7 +4,7 @@ title:  "零基础构建语言解释器"
 author: 詹子知(James Zhan)
 date:   2015-04-01 23:00:00
 meta:   版权所有，转载须声明出处
-category: pdt
+category: pdl
 tags: [lambda, fp, javascript, lisp, compiler, interpreter, pdt]
 ---
 

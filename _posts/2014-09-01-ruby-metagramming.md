@@ -4,7 +4,7 @@ title:  "Ruby元编程技巧"
 author: 詹子知(James Zhan)
 date:   2014-09-01 12:00:00
 category: ruby
-tags: [ruby, metaprogramming, dsl, pdl]
+tags: [ruby, metaprogramming, dsl, pdt]
 ---
 （摘自ruby元编程原书附录）
 
